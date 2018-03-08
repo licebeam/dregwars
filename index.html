@@ -7,11 +7,42 @@
     <title>Dreg Wars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="main.js"></script>
+
 </head>
 
 <body>
+    <div class="wrapper">
+        <!-- Main Wrapper -->
 
+        <em id="loc">NULL</em>
+        <span id="locDescription">HEY HEY</span>
+        <!-- Shows Player Location -->
+
+        <div class="mainWindow">
+            <!-- Game Window -->
+
+            <div class="mainBody">
+                <!--Location Image Text and Info-->
+                <img class="imgMain" src="https://source.unsplash.com/random/500x500" alt="">
+
+                <div>TEXT GOES HERE</div>
+
+
+            </div>
+
+            <div class="bottomBar">
+                <!--Button Holder-->
+                <button id="btn1" onclick="button(this,btn1)">Downtown</button>
+                <button id="btn2" onclick="button(this,btn2)">East Side</button>
+                <button id="btn3" onclick="button(this,btn3)">West Side</button>
+                <button id="btn4" onclick="button(this,btn4)">South End</button>
+            </div>
+
+
+        </div>
+
+    </div>
 </body>
+<script src="main.js"></script>
 
 </html>
