@@ -18,35 +18,45 @@
         <span id="loc">Detroit: Downtown </span>
         <span id="locDescription">Description: </span>
         <!-- Shows Player Location -->
+        <div class="bottomBar">
+            <!--Button Holder-->
+            <button id="btn1" onclick="button(this,btn1)">Downtown</button>
+            <button id="btn2" onclick="button(this,btn2)">East Side</button>
+            <button id="btn3" onclick="button(this,btn3)">West Side</button>
+            <button id="btn4" onclick="button(this,btn4)">South End</button>
+        </div>
 
         <div class="mainWindow">
             <!-- Game Window -->
 
             <div class="mainBody">
                 <!--Location Image Text and Info-->
-                <img class="imgMain" src="https://source.unsplash.com/random/400x200" alt="">
+                <img class="imgMain" src="https://source.unsplash.com/random/400x300" alt="">
+
+                <div class="rightBar">
+                    <!--Button Holder 2-->
+                    <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
+                    <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
+                    <span id="dealerName">BOB</span>
+                </div>
 
                 <div class="descriptArea">
                     <span id="descriptText">NULL</span>
+                    <span id="eventArea">BUY MENU</span>
                 </div>
 
-                <div class="playerStats">playerStats</div>
-                <div class="playerInv">playerInv</div>
-            </div>
+                <div class="playerStats">
+                    <span id="playerStatus"> STATS OF PLAYER</span>
 
-            <div class="bottomBar">
-                <!--Button Holder-->
-                <button id="btn1" onclick="button(this,btn1)">Downtown</button>
-                <button id="btn2" onclick="button(this,btn2)">East Side</button>
-                <button id="btn3" onclick="button(this,btn3)">West Side</button>
-                <button id="btn4" onclick="button(this,btn4)">South End</button>
+                </div>
+                <div class="playerInv">
+                    <span id="playerInventory"> INVENTORY: </span>
+                </div>
             </div>
+            <div class="buyMenu">BUY MENU</div>
 
-            <div class="rightBar">
-                <!--Button Holder 2-->
-                <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
-                <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
-            </div>
+
+
 
         </div>
 

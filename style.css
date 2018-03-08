@@ -3,12 +3,18 @@ html {
     color: whitesmoke;
 }
 
-button {
-    background-color: tomato;
+body {
+    width: 100%;
+    overflow: hidden;
 }
 
-.rightBar {
-    margin-top: 100px;
+.wrapper {
+    margin: 0 auto;
+    width: 400px;
+}
+
+button {
+    background-color: tomato;
 }
 
 .descriptArea {
@@ -30,4 +36,16 @@ button {
 
 span {
     padding: 5px;
+}
+
+.rightBar {
+    width: 400px;
+}
+
+#btnTa {
+    margin-left: 200px;
+}
+
+.buyMenu {
+    height: 100px;
 }
