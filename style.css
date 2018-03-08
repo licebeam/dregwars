@@ -13,6 +13,10 @@ body {
     width: 400px;
 }
 
+.mainBody {
+    margin: 0 auto;
+}
+
 button {
     background-color: tomato;
 }
@@ -40,6 +44,13 @@ span {
 
 .rightBar {
     width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bottomBar {
+    margin: 0 auto;
+    text-align: center;
 }
 
 #btnTa {
