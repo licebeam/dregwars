@@ -6,3 +6,17 @@ html {
 button {
     background-color: tomato;
 }
+
+.rightBar {
+    margin-top: 100px;
+}
+
+.descriptArea {
+    background-color: blue;
+    width: 400px;
+    height: 100px;
+}
+
+span {
+    padding: 5px;
+}

@@ -1,9 +1,11 @@
 var locationText = document.getElementById("loc");
 var locationDes = document.getElementById("locDescription");
+
+var descriptText = document.getElementById("descriptText");
 var loc1 = "Downtown ";
 var loc2 = "East Side ";
 var loc3 = "West Side ";
-var loc4 = "Sound End ";
+var loc4 = "South End ";
 
 var locD1 = "TEXT TEXT TEXT";
 
@@ -27,5 +29,14 @@ function button(obj, id) {
         case btn4:
             locationText.innerText = "Detroit: " + loc4;
             break;
+
+        case btnSe:
+            descriptText.innerText = "fuck";
+            break;
+
+        case btnTa:
+            descriptText.innerText = "fuck";
+            break;
+
     }
-}
+};

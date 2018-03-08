@@ -8,14 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 
+
 </head>
 
 <body>
     <div class="wrapper">
         <!-- Main Wrapper -->
 
-        <em id="loc">NULL</em>
-        <span id="locDescription">HEY HEY</span>
+        <span id="loc">Detroit: Downtown </span>
+        <span id="locDescription">Description: </span>
         <!-- Shows Player Location -->
 
         <div class="mainWindow">
@@ -23,9 +24,11 @@
 
             <div class="mainBody">
                 <!--Location Image Text and Info-->
-                <img class="imgMain" src="https://source.unsplash.com/random/500x500" alt="">
+                <img class="imgMain" src="https://source.unsplash.com/random/400x200" alt="">
 
-                <div>TEXT GOES HERE</div>
+                <div class="descriptArea">
+                    <span id="descriptText">NULL</span>
+                </div>
 
 
             </div>
@@ -38,11 +41,16 @@
                 <button id="btn4" onclick="button(this,btn4)">South End</button>
             </div>
 
+            <div class="rightBar">
+                <!--Button Holder 2-->
+                <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
+                <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
+            </div>
 
         </div>
 
     </div>
 </body>
-<script src="main.js"></script>
+<script src="main.js "></script>
 
 </html>
