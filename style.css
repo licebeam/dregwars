@@ -17,6 +17,17 @@ button {
     height: 100px;
 }
 
+.playerStats {
+    width: 400px;
+    height: 100px;
+}
+
+.playerInv {
+    width: 400px;
+    height: 100px;
+    background-color: blue;
+}
+
 span {
     padding: 5px;
 }
