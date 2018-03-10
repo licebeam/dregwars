@@ -24,18 +24,45 @@ function showItems() {
 var playerInv = [{
     name: "Credit",
     amount: 1
-}, {
-    name: "Cyber Wares",
-    amount: 1
 }]
 
 //get buy names for below function----
 var buyName1 = document.getElementById("buyName1").textContent;
+var buyName2 = document.getElementById("buyName2").textContent;
 //function for buying item
-function buyItems(name, amt) {
+function buyItems(name, amt) { //// THIS NEEDS TO BE FIXEDDDDDDDDDDDDDDDDDDDD----------------------
+
+    if (playerInv.indexOf(name) === -1) {
+        alert('not found')
+        playerInv.push({
+            name: name,
+            amount: amt
+        })
+    } else if (playerInv.indexOf(name) > -1) {
+        alert('found item')
+
+        for (i = 0; i < playerInv.length; i++) {
+
+            if (playerInv[i].name === name) {
+
+                playerInv[i].amount += amt;
+
+            }
+
+        }
+    }
+
+
+
+
+
+}
+
+function sellItems(name, amt) {
     for (i = 0; i < playerInv.length; i++) {
         if (playerInv[i].name == name) {
-            playerInv[i].amount += amt;
+            playerInv[i].amount -= amt;
+
         }
     }
 }
@@ -43,8 +70,12 @@ function buyItems(name, amt) {
 function updateInv() {
     invenPlayer.innerText = "";
     for (i = 0; i < playerInv.length; i++) {
+        if (playerInv[i].amount == 0) {
+            playerInv.splice(i, 1);
+        }
         invenPlayer.innerText += "\n Name: " + playerInv[i].name;
         invenPlayer.innerText += " Owned: " + playerInv[i].amount;
+
     }
 
 }
@@ -83,7 +114,7 @@ function button(obj, id) {
             break;
 
         case btnTa: // this should populate the buy menu with dom elements
-            descriptText.innerText = "fuck";
+            descriptText.innerText = "Talking to Bob";
             showItems();
             break;
 
@@ -91,13 +122,26 @@ function button(obj, id) {
             ///buttons for item buys
         case buyBtn1:
             buyItems(buyName1, 1);
-            alert("you bought " + buyName1 + " Owned: " + playerInv[0].amount);
+            alert("You bought " + buyName1);
             updateInv();
             break;
 
         case sellBtn1:
-            alert("you sold somethin");
-            alert(JSON.stringify(playerInv))
+            sellItems(buyName1, 1);
+            alert("You Sold " + buyName1);
+            updateInv();
+            break;
+
+        case buyBtn2:
+            buyItems(buyName2, 1);
+            alert("You bought " + buyName2);
+            updateInv();
+            break;
+
+        case sellBtn2:
+            sellItems(buyName2, 1);
+            alert("You Sold " + buyName2);
+            updateInv();
             break;
 
     }
