@@ -5,6 +5,18 @@ var locationDes = document.getElementById("locDescription");
 
 var descriptText = document.getElementById("descriptText");
 var eventText = document.getElementById("eventArea");
+
+
+function hideItems() {
+    document.getElementById("buyItem1").style.visibility = "hidden";
+    document.getElementById("buyItem2").style.visibility = "hidden";
+
+}
+
+function showItems() {
+    document.getElementById("buyItem1").style.visibility = "visible";
+    document.getElementById("buyItem2").style.visibility = "visible";
+}
 //MAIN Button menu
 function button(obj, id) {
 
@@ -35,11 +47,13 @@ function button(obj, id) {
 
         case btnSe:
             descriptText.innerText = loc1.searchEvent();
+            hideItems();
 
             break;
 
-        case btnTa:
+        case btnTa: // this should populate the buy menu with dom elements
             descriptText.innerText = "fuck";
+            showItems();
             break;
 
     }
