@@ -9,37 +9,36 @@ var eventText = document.getElementById("eventArea");
 var invenPlayer = document.getElementById("playerInventory");
 
 function hideItems() {
-    document.getElementById("buyItem1").style.visibility = "hidden";
-    document.getElementById("buyItem2").style.visibility = "hidden";
+    document
+        .getElementById("buyItem1")
+        .style
+        .visibility = "hidden";
+    document
+        .getElementById("buyItem2")
+        .style
+        .visibility = "hidden";
 
 }
 
 function showItems() {
-    document.getElementById("buyItem1").style.visibility = "visible";
-    document.getElementById("buyItem2").style.visibility = "visible";
+    document
+        .getElementById("buyItem1")
+        .style
+        .visibility = "visible";
+    document
+        .getElementById("buyItem2")
+        .style
+        .visibility = "visible";
 }
 
-
-//player Inventory object
-var playerInv = [{
-    name: "Credit",
-    amount: 1
-}]
-
-//get buy names for below function----
-var buyName1 = document.getElementById("buyName1").textContent;
-var buyName2 = document.getElementById("buyName2").textContent;
 //function for buying item
 function buyItems(name, amt) { //// THIS NEEDS TO BE FIXEDDDDDDDDDDDDDDDDDDDD----------------------
 
     if (playerInv.indexOf(name) === -1) {
-        alert('not found')
-        playerInv.push({
-            name: name,
-            amount: amt
-        })
+        //alert('not found')
+        playerInv.push({name: name, amount: amt})
     } else if (playerInv.indexOf(name) > -1) {
-        alert('found item')
+        //alert('found item')
 
         for (i = 0; i < playerInv.length; i++) {
 
@@ -51,10 +50,6 @@ function buyItems(name, amt) { //// THIS NEEDS TO BE FIXEDDDDDDDDDDDDDDDDDDDD---
 
         }
     }
-
-
-
-
 
 }
 
@@ -79,6 +74,7 @@ function updateInv() {
     }
 
 }
+
 //MAIN Button menu
 function button(obj, id) {
 
@@ -87,6 +83,7 @@ function button(obj, id) {
             locationText.innerText = "Detroit: " + loc1.name;
             locationDes.innerText = "Description: " + loc1.desc;
             eventText.innerText = loc1.randomEvent();
+
             break;
 
         case btn2:
@@ -118,29 +115,36 @@ function button(obj, id) {
             showItems();
             break;
 
-
             ///buttons for item buys
         case buyBtn1:
             buyItems(buyName1, 1);
-            alert("You bought " + buyName1);
+            //alert("You bought " + buyName1);
+            item1.amount -= 1; //change later
+            updateMerch();
             updateInv();
             break;
 
         case sellBtn1:
             sellItems(buyName1, 1);
-            alert("You Sold " + buyName1);
+            item1.amount += 1; //change later
+            updateMerch();
+            //alert("You Sold " + buyName1);
             updateInv();
             break;
 
         case buyBtn2:
             buyItems(buyName2, 1);
-            alert("You bought " + buyName2);
+            //alert("You bought " + buyName2);
+            item2.amount -= 1; //change later
+            updateMerch();
             updateInv();
             break;
 
         case sellBtn2:
             sellItems(buyName2, 1);
-            alert("You Sold " + buyName2);
+            //alert("You Sold " + buyName2);
+            item2.amount += 1; //change later
+            updateMerch();
             updateInv();
             break;
 
@@ -149,3 +153,4 @@ function button(obj, id) {
 
 //populate Player inventory.
 updateInv();
+updateMerch();
