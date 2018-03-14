@@ -49,49 +49,6 @@ function showItems() {
         .visibility = "visible";
 }
 
-//function for buying item
-function buyItems(name, amt) { //finally works!!!!
-    let exist = playerInv.some(playerInv => playerInv.name === name);
-    if (exist === false) {
-        playerInv.push({name: name, amount: amt});
-    } else {
-        for (i = 0; i < playerInv.length; i++) {
-            if (playerInv[i].name == name) {
-                playerInv[i].amount += amt;
-
-            }
-        }
-    }
-
-}
-
-function sellItems(name, amt) {
-    for (i = 0; i < playerInv.length; i++) {
-        if (playerInv[i].name == name) {
-            playerInv[i].amount -= amt;
-
-        }
-    }
-}
-
-function updateInv() {
-    invenPlayer.innerText = "";
-    for (i = 0; i < playerInv.length; i++) {
-        if (playerInv[i].amount == 0) {
-            playerInv.splice(i, 1);
-        }
-        invenPlayer.innerText += "\n Name: " + playerInv[i].name;
-        invenPlayer.innerText += " Owned: " + playerInv[i].amount;
-
-    }
-
-}
-//update money and stats
-function updateStats() {
-    playerStats.innerText = "Name: " + player.name + "\n";
-    playerStats.innerText += "Hp: " + player.hp;
-    playerMoney.innerText = player.money;
-}
 //MAIN Button menu
 function button(obj, id) {
 
@@ -134,72 +91,176 @@ function button(obj, id) {
 
             ///buttons for item buys
         case buyBtn1:
-            buyItems(buyName1, 1);
-            //alert("You bought " + buyName1);
-            item1.amount -= 1; //change later
             updateMerch();
-            updateInv();
+            updateStats();
+            if (item1.amount >= 1 && player.money >= item1.value) {
+                buyItems(buyName1, 1, item1.value);
+                item1.amount -= 1;
+                updateMerch();
+                updateInv();
+                updateStats();
+            }
+
             break;
 
         case sellBtn1:
-            sellItems(buyName1, 1);
-            item1.amount += 1; //change later
+            sellItems(buyName1, 1, item1.value, 1); //bnum is button num for item
             updateMerch();
-            //alert("You Sold " + buyName1);
             updateInv();
+            updateStats();
+
             break;
 
         case buyBtn2:
-            buyItems(buyName2, 1);
-            //alert("You bought " + buyName2);
-            item2.amount -= 1; //change later
             updateMerch();
-            updateInv();
+            updateStats();
+            if (item2.amount >= 1 && player.money >= item2.value) {
+                buyItems(buyName2, 1, item2.value);
+                item2.amount -= 1;
+                updateMerch();
+                updateInv();
+                updateStats();
+            }
+
             break;
 
         case sellBtn2:
-            sellItems(buyName2, 1);
-            //alert("You Sold " + buyName2);
-            item2.amount += 1; //change later
+            sellItems(buyName2, 1, item2.value, 2); //bnum is button num for item
             updateMerch();
             updateInv();
+            updateStats();
+
             break;
 
         case buyBtn3:
-            buyItems(buyName3, 1);
-            //alert("You bought " + buyName2);
-            item3.amount -= 1; //change later
             updateMerch();
-            updateInv();
+            updateStats();
+            if (item3.amount >= 1 && player.money >= item3.value) {
+                buyItems(buyName3, 1, item3.value);
+                item3.amount -= 1;
+                updateMerch();
+                updateInv();
+                updateStats();
+            }
+
             break;
 
         case sellBtn3:
-            sellItems(buyName3, 1);
-            //alert("You Sold " + buyName2);
-            item3.amount += 1; //change later
+            sellItems(buyName3, 1, item3.value, 3); //bnum is button num for item
             updateMerch();
             updateInv();
+            updateStats();
+
             break;
 
         case buyBtn4:
-            buyItems(buyName4, 1);
-            //alert("You bought " + buyName2);
-            item4.amount -= 1; //change later
             updateMerch();
-            updateInv();
+            updateStats();
+            if (item4.amount >= 1 && player.money >= item4.value) {
+                buyItems(buyName4, 1, item4.value);
+                item4.amount -= 1;
+                updateMerch();
+                updateInv();
+                updateStats();
+            }
+
             break;
 
         case sellBtn4:
-            sellItems(buyName4, 1);
-            //alert("You Sold " + buyName2);
-            item4.amount += 1; //change later
+            sellItems(buyName4, 1, item4.value, 4); //bnum is button num for item
             updateMerch();
             updateInv();
+            updateStats();
+
             break;
     }
 };
+//function for buying item
+function buyItems(name, amt, price) { //finally works!!!!
+    let exist = playerInv.some(playerInv => playerInv.name === name);
+    if (exist === false) {
+        updateStats();
+        if (player.money >= price) {
 
+            player.money -= price;
+            updateStats();
+            playerInv.push({name: name, amount: amt});
+            updateInv();
+
+        }
+
+    } else {
+        for (i = 0; i < playerInv.length; i++) {
+            if (playerInv[i].name == name) {
+                updateStats();
+                if (player.money >= price) {
+
+                    playerInv[i].amount += amt;
+                    updateInv();
+                    player.money -= price;
+                    updateStats();
+
+                }
+
+            }
+        }
+    }
+}
+
+function sellItems(name, amt, price, bnum) {
+
+    let itemSeller = playerInv.some(playerInv => playerInv.name === name);
+    for (i = 0; i < playerInv.length; i++) {
+        if (playerInv[i].name == name && itemSeller === true) {
+            player.money += price;
+            updateStats();
+            if (itemSeller === true) {
+                switch (bnum) {
+                    case 1:
+                        item1.amount += 1;
+                        break;
+                    case 2:
+                        item2.amount += 1;
+                        break;
+
+                    case 3:
+                        item3.amount += 1;
+                        break;
+
+                    case 4:
+                        item4.amount += 1;
+                        break;
+                }
+                updateMerch();
+            }
+
+            playerInv[i].amount -= amt;
+            updateInv();
+
+        }
+    }
+
+}
+
+//update money and stats
+function updateStats() {
+    playerStats.innerText = "Name: " + player.name + "\n";
+    playerStats.innerText += "Hp: " + player.hp;
+    playerMoney.innerText = player.money;
+}
 //populate Player inventory.
+function updateInv() {
+    invenPlayer.innerText = "";
+    for (i = 0; i < playerInv.length; i++) {
+        if (playerInv[i].amount == 0) {
+            playerInv.splice(i, 1);
+        }
+        invenPlayer.innerText += "\n Name: " + playerInv[i].name;
+        invenPlayer.innerText += " Owned: " + playerInv[i].amount;
+
+    }
+
+}
 updateInv();
 updateMerch();
 updateStats();
