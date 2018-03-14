@@ -7,6 +7,8 @@ var descriptText = document.getElementById("descriptText");
 var eventText = document.getElementById("eventArea");
 
 var invenPlayer = document.getElementById("playerInventory");
+var playerStats = document.getElementById("playerStatus");
+var playerMoney = document.getElementById("playerMoney")
 
 function hideItems() {
     document
@@ -15,6 +17,14 @@ function hideItems() {
         .visibility = "hidden";
     document
         .getElementById("buyItem2")
+        .style
+        .visibility = "hidden";
+    document
+        .getElementById("buyItem3")
+        .style
+        .visibility = "hidden";
+    document
+        .getElementById("buyItem4")
         .style
         .visibility = "hidden";
 
@@ -29,25 +39,27 @@ function showItems() {
         .getElementById("buyItem2")
         .style
         .visibility = "visible";
+    document
+        .getElementById("buyItem3")
+        .style
+        .visibility = "visible";
+    document
+        .getElementById("buyItem4")
+        .style
+        .visibility = "visible";
 }
 
 //function for buying item
-function buyItems(name, amt) { //// THIS NEEDS TO BE FIXEDDDDDDDDDDDDDDDDDDDD----------------------
-
-    if (playerInv.indexOf(name) === -1) {
-        //alert('not found')
-        playerInv.push({name: name, amount: amt})
-    } else if (playerInv.indexOf(name) > -1) {
-        //alert('found item')
-
+function buyItems(name, amt) { //finally works!!!!
+    let exist = playerInv.some(playerInv => playerInv.name === name);
+    if (exist === false) {
+        playerInv.push({name: name, amount: amt});
+    } else {
         for (i = 0; i < playerInv.length; i++) {
-
-            if (playerInv[i].name === name) {
-
+            if (playerInv[i].name == name) {
                 playerInv[i].amount += amt;
 
             }
-
         }
     }
 
@@ -74,7 +86,12 @@ function updateInv() {
     }
 
 }
-
+//update money and stats
+function updateStats() {
+    playerStats.innerText = "Name: " + player.name + "\n";
+    playerStats.innerText += "Hp: " + player.hp;
+    playerMoney.innerText = player.money;
+}
 //MAIN Button menu
 function button(obj, id) {
 
@@ -148,9 +165,41 @@ function button(obj, id) {
             updateInv();
             break;
 
+        case buyBtn3:
+            buyItems(buyName3, 1);
+            //alert("You bought " + buyName2);
+            item3.amount -= 1; //change later
+            updateMerch();
+            updateInv();
+            break;
+
+        case sellBtn3:
+            sellItems(buyName3, 1);
+            //alert("You Sold " + buyName2);
+            item3.amount += 1; //change later
+            updateMerch();
+            updateInv();
+            break;
+
+        case buyBtn4:
+            buyItems(buyName4, 1);
+            //alert("You bought " + buyName2);
+            item4.amount -= 1; //change later
+            updateMerch();
+            updateInv();
+            break;
+
+        case sellBtn4:
+            sellItems(buyName4, 1);
+            //alert("You Sold " + buyName2);
+            item4.amount += 1; //change later
+            updateMerch();
+            updateInv();
+            break;
     }
 };
 
 //populate Player inventory.
 updateInv();
 updateMerch();
+updateStats();
