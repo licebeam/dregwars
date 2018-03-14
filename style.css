@@ -1,18 +1,19 @@
 html {
-    background-color: black;
+    background: linear-gradient(to right, rgb(44, 9, 28), rgb(78, 156, 207));
     color: whitesmoke;
+    width: 100%;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
+    font-size: 12pt;
 }
 
 .container {
-    margin-top: 10%;
+    margin-top: 2%;
 }
 
 .column {
-    background-color: blue;
     color: whitesmoke;
     border-radius: 2%;
 }

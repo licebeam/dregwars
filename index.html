@@ -15,75 +15,185 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container is-fluid">
         <!--Bulma Container -->
 
-        <div class="columns">
-            <div class="column">
-                <!-- Main Wrapper -->
-                <span id="loc">Detroit: Downtown </span>
-                <span id="locDescription">Description: </span>
-                <!-- Shows Player Location -->
-                <div class="bottomBar">
-                    <!--Button Holder-->
-                    <button id="btn1" onclick="button(this,btn1)">Downtown</button>
-                    <button id="btn2" onclick="button(this,btn2)">East Side</button>
-                    <button id="btn3" onclick="button(this,btn3)">West Side</button>
-                    <button id="btn4" onclick="button(this,btn4)">South End</button>
+        <div class="columns is-4">
+            <div class="column is-narrow">
+                <article class="message is-info">
+                    <div class="message-header">
+                        Location
+                        <button class="delete"></button>
+                    </div>
+                    <div class="message-body">
+                        <!-- Main Wrapper -->
+                        <span id="loc">Detroit: Downtown </span>
+                        <span id="locDescription">Description: </span>
+                        <!-- Shows Player Location -->
+                        <div class="bottomBar">
+                            <!--Button Holder-->
+                            <button id="btn1" class="button" onclick="button(this,btn1)">Downtown</button>
+                            <button id="btn2" class="button" onclick="button(this,btn2)">East Side</button>
+                            <button id="btn3" class="button" onclick="button(this,btn3)">West Side</button>
+                            <button id="btn4" class="button" onclick="button(this,btn4)">South End</button>
+                        </div>
+
+
+                        <div class="mainBody">
+                            <!--Location Image Text and Info-->
+                            <figure class="image is-400x300">
+                                <img class="imgMain" src="https://source.unsplash.com/random/400x300" alt="">
+                            </figure>
+
+                        </div>
+                    </div>
+                </article>
+
+                <div class="column is-narrow ">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Player Information
+
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            <div class="rightBar">
+                                <!--Button Holder 2-->
+                                <button id="btnSe" class="button" onclick="button(this,btnSe)">Search Area</button>
+                                <button id="btnTa" class="button" onclick="button(this,btnTa)">Talk to </button>
+                                <span id="dealerName">BOB</span>
+                            </div>
+
+                            <div class="descriptArea">
+                                <span id="descriptText">NULL</span>
+                                <span id="eventArea">BUY MENU</span>
+                            </div>
+
+                        </div>
+                    </article>
+
                 </div>
 
-
-                <div class="mainBody">
-                    <!--Location Image Text and Info-->
-                    <img class="imgMain" src="https://source.unsplash.com/random/400x300" alt="">
-
-                    <div class="rightBar">
-                        <!--Button Holder 2-->
-                        <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
-                        <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
-                        <span id="dealerName">BOB</span>
-                    </div>
-
-                    <div class="descriptArea">
-                        <span id="descriptText">NULL</span>
-                        <span id="eventArea">BUY MENU</span>
-                    </div>
-                </div>
             </div>
-            <div class="column">
+            <div class="column is-narrow ">
 
                 <div class="buyMenu">
-                    <div id="buyItem1">
-                        <em id="buyName1">null</em>
-                        <em id="buyPrice1">null</em>
-                        <em id="buynum1">null</em>
-                        <button id="buyBtn1" onclick="button(this,buyBtn1)">Buy</button>
-                        <button id="sellBtn1" onclick="button(this,sellBtn1)">Sell</button>
-                    </div>
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Shop Information
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            <div id="buyItem1">
+                                <em id="buyName1">null</em>
+                                <em id="buyPrice1">null</em>
+                                <em id="buynum1">null</em>
+                                <button id="buyBtn1" class="button" onclick="button(this,buyBtn1)">Buy</button>
+                                <button id="sellBtn1" class="button" onclick="button(this,sellBtn1)">Sell</button>
+                            </div>
 
-                    <div id="buyItem2">
-                        <em id="buyName2">null</em>
-                        <em id="buyPrice2">null</em>
-                        <em id="buynum2">null</em>
-                        <button id="buyBtn2" onclick="button(this,buyBtn2)">Buy</button>
-                        <button id="sellBtn2" onclick="button(this,sellBtn2)">Sell</button>
-                    </div>
+                            <div id="buyItem2">
+                                <em id="buyName2">null</em>
+                                <em id="buyPrice2">null</em>
+                                <em id="buynum2">null</em>
+                                <button id="buyBtn2" class="button" onclick="button(this,buyBtn2)">Buy</button>
+                                <button id="sellBtn2" class="button" onclick="button(this,sellBtn2)">Sell</button>
+                            </div>
+
+                            <div id="buyItem2">
+                                <em id="buyName2">null</em>
+                                <em id="buyPrice2">null</em>
+                                <em id="buynum2">null</em>
+                                <button id="buyBtn2" class="button" onclick="button(this,buyBtn2)">Buy</button>
+                                <button id="sellBtn2" class="button" onclick="button(this,sellBtn2)">Sell</button>
+                            </div>
+
+                            <div id="buyItem2">
+                                <em id="buyName2">null</em>
+                                <em id="buyPrice2">null</em>
+                                <em id="buynum2">null</em>
+                                <button id="buyBtn2" class="button" onclick="button(this,buyBtn2)">Buy</button>
+                                <button id="sellBtn2" class="button" onclick="button(this,sellBtn2)">Sell</button>
+                            </div>
+                        </div>
                 </div>
+                </article>
+                <div class="column">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Player Inventory
 
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+
+                            <span id="playerInventory"> INVENTORY: </span>
+                        </div>
+                    </article>
+                </div>
+                <div class="column">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Bank Information
+
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+
+                            This will show player money.
+                        </div>
+                    </article>
+                </div>
             </div>
             <div class="column">
-                <div class="playerStats">
-                    <span id="playerStatus"> STATS OF PLAYER</span>
+                <article class="message is-info">
+                    <div class="message-header">
+                        Player Information
+
+                        <button class="delete"></button>
+                    </div>
+                    <div class="message-body">
+
+                        <span id="playerStatus"> STATS OF PLAYER</span>
+                    </div>
+                </article>
+
+                <div class="column is-narrow">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Player Information
+
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+
+                            RUNNING PROGRAMS
+                        </div>
+                    </article>
                 </div>
+                <div class="column is-narrow">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Player Information
+
+                            <button class="delete"></button>
+                        </div>
+                        <div class="message-body">
+
+                            Computer Information
 
 
-                <div class="playerInv">
-                    <span id="playerInventory"> INVENTORY: </span>
+                        </div>
+                    </article>
                 </div>
-
             </div>
 
+
+
+
         </div>
+
+    </div>
 
     </div>
 
