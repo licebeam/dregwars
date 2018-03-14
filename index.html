@@ -3,80 +3,92 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dreg Wars</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dreg Wars</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 
 
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- Main Wrapper -->
+    <div class="container">
+        <!--Bulma Container -->
 
-        <span id="loc">Detroit: Downtown </span>
-        <span id="locDescription">Description: </span>
-        <!-- Shows Player Location -->
-        <div class="bottomBar">
-            <!--Button Holder-->
-            <button id="btn1" onclick="button(this,btn1)">Downtown</button>
-            <button id="btn2" onclick="button(this,btn2)">East Side</button>
-            <button id="btn3" onclick="button(this,btn3)">West Side</button>
-            <button id="btn4" onclick="button(this,btn4)">South End</button>
-        </div>
-
-        <div class="mainWindow">
-            <!-- Game Window -->
-
-            <div class="mainBody">
-                <!--Location Image Text and Info-->
-                <img class="imgMain" src="https://source.unsplash.com/random/400x300" alt="">
-
-                <div class="rightBar">
-                    <!--Button Holder 2-->
-                    <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
-                    <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
-                    <span id="dealerName">BOB</span>
+        <div class="columns">
+            <div class="column">
+                <!-- Main Wrapper -->
+                <span id="loc">Detroit: Downtown </span>
+                <span id="locDescription">Description: </span>
+                <!-- Shows Player Location -->
+                <div class="bottomBar">
+                    <!--Button Holder-->
+                    <button id="btn1" onclick="button(this,btn1)">Downtown</button>
+                    <button id="btn2" onclick="button(this,btn2)">East Side</button>
+                    <button id="btn3" onclick="button(this,btn3)">West Side</button>
+                    <button id="btn4" onclick="button(this,btn4)">South End</button>
                 </div>
 
-                <div class="descriptArea">
-                    <span id="descriptText">NULL</span>
-                    <span id="eventArea">BUY MENU</span>
+
+                <div class="mainBody">
+                    <!--Location Image Text and Info-->
+                    <img class="imgMain" src="https://source.unsplash.com/random/400x300" alt="">
+
+                    <div class="rightBar">
+                        <!--Button Holder 2-->
+                        <button id="btnSe" onclick="button(this,btnSe)">Search Area</button>
+                        <button id="btnTa" onclick="button(this,btnTa)">Talk to </button>
+                        <span id="dealerName">BOB</span>
+                    </div>
+
+                    <div class="descriptArea">
+                        <span id="descriptText">NULL</span>
+                        <span id="eventArea">BUY MENU</span>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+
+                <div class="buyMenu">
+                    <div id="buyItem1">
+                        <em id="buyName1">null</em>
+                        <em id="buyPrice1">null</em>
+                        <em id="buynum1">null</em>
+                        <button id="buyBtn1" onclick="button(this,buyBtn1)">Buy</button>
+                        <button id="sellBtn1" onclick="button(this,sellBtn1)">Sell</button>
+                    </div>
+
+                    <div id="buyItem2">
+                        <em id="buyName2">null</em>
+                        <em id="buyPrice2">null</em>
+                        <em id="buynum2">null</em>
+                        <button id="buyBtn2" onclick="button(this,buyBtn2)">Buy</button>
+                        <button id="sellBtn2" onclick="button(this,sellBtn2)">Sell</button>
+                    </div>
                 </div>
 
+            </div>
+            <div class="column">
                 <div class="playerStats">
                     <span id="playerStatus"> STATS OF PLAYER</span>
-
                 </div>
+
+
                 <div class="playerInv">
                     <span id="playerInventory"> INVENTORY: </span>
                 </div>
+
             </div>
-            <div class="buyMenu">
-                <div id="buyItem1">
-                    <em id="buyName1">null</em>
-                    <em id="buyPrice1">null</em>
-                    <em id="buynum1">null</em>
-                    <button id="buyBtn1" onclick="button(this,buyBtn1)">Buy</button>
-                    <button id="sellBtn1" onclick="button(this,sellBtn1)">Sell</button>
-                </div>
-
-                <div id="buyItem2">
-                    <em id="buyName2">null</em>
-                    <em id="buyPrice2">null</em>
-                    <em id="buynum2">null</em>
-                    <button id="buyBtn2" onclick="button(this,buyBtn2)">Buy</button>
-                    <button id="sellBtn2" onclick="button(this,sellBtn2)">Sell</button>
-                </div>
-            </div>
-
-
-
 
         </div>
 
     </div>
+
+
+
 </body>
 <script src="itemdetails.js "></script>
 <script src="playerstats.js "></script>

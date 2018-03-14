@@ -4,59 +4,15 @@ html {
 }
 
 body {
-    width: 100%;
-    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
-.wrapper {
-    margin: 0 auto;
-    width: 400px;
+.container {
+    margin-top: 10%;
 }
 
-.mainBody {
-    margin: 0 auto;
-}
-
-button {
-    background-color: tomato;
-}
-
-.descriptArea {
+.column {
     background-color: blue;
-    width: 400px;
-    height: 100px;
-}
-
-.playerStats {
-    width: 400px;
-    height: 100px;
-}
-
-.playerInv {
-    width: 400px;
-    height: 100px;
-    background-color: blue;
-}
-
-span {
-    padding: 5px;
-}
-
-.rightBar {
-    width: 400px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.bottomBar {
-    margin: 0 auto;
-    text-align: center;
-}
-
-#btnTa {
-    margin-left: 200px;
-}
-
-.buyMenu {
-    height: 100px;
+    color: whitesmoke;
+    border-radius: 2%;
 }
