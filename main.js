@@ -1,8 +1,17 @@
-//THIS SCRIPT USES CLASS OBJECTS FROM loc.js
+//THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
+var progress = document.getElementById("progress1");
+for (i = 0; i < progress.max; i++) {
 
+    progress.value += 1;
+
+};
+if (progress.value >= 100) {
+    $('#progress1').css('visibility', 'hidden');
+}
+////
 var locationText = document.getElementById("loc");
 var locationDes = document.getElementById("locDescription");
-
+$('#hold').css('visibility', 'hidden');
 var descriptText = document.getElementById("descriptText");
 var eventText = document.getElementById("eventArea");
 

@@ -10,16 +10,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+        crossorigin="anonymous">
 
 </head>
 
 <body>
-    <div class="container is-fluid">
+    <progress id="progress1" class="progress" value="0" max="1000">dynamicVal</progress>
+
+    <div class="container is-fluid" id="hold">
         <!--Bulma Container -->
 
-        <div class="columns is-4">
-            <div class="column is-narrow">
+        <div class="columns">
+            <div id="bounce" class="column is-narrow animated">
                 <article class="message is-info">
                     <div class="message-header">
                         Location:
@@ -49,7 +54,7 @@
                     </div>
                 </article>
 
-                <div class="column is-narrow ">
+                <div id="bounce" class="column is-narrow animated">
                     <article class="message is-info">
                         <div class="message-header">
                             Nearby:
@@ -119,7 +124,7 @@
                 </div>
                 </article>
                 <div class="column">
-                    <article class="message is-info">
+                    <article class="message is-dark">
                         <div class="message-header">
                             Player Inventory
 
@@ -132,15 +137,15 @@
                     </article>
                 </div>
                 <div class="column">
-                    <article class="message is-info">
-                        <div class="message-header">
+                    <article class="message is-danger">
+                        <div class="message-header bigText">
                             Bank Information
 
                             <i class="fas fa-folder"></i>
                         </div>
                         <div class="message-body">
 
-                            <span id="playerMoney"> STATS OF PLAYER</span>
+                            <span id="playerMoney" class="bigText"> STATS OF PLAYER</span>
                         </div>
                     </article>
                 </div>
@@ -197,9 +202,18 @@
 
     </div>
 
+    <script>
+        window.onload = function () {
 
+            setTimeout(function () {
+                $('#hold').css('visibility', 'visible');
+                $('#bounce').addClass('bounce');
+            }, 1000);
+        }; //preloader
+    </script>
 
 </body>
+
 <script src="itemdetails.js "></script>
 <script src="playerstats.js "></script>
 <script src="loc.js "></script>

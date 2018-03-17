@@ -1,10 +1,22 @@
+#hold {
+    visibility: hidden;
+}
+
+#progress1 {
+    position: absolute;
+    margin-top: 100px;
+}
+
 html {
-    background: linear-gradient(to right, rgb(44, 9, 28), rgb(78, 156, 207));
-    color: whitesmoke;
     width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    background: linear-gradient(to right, rgb(44, 9, 28), rgb(78, 156, 207));
 }
 
 body {
+    margin: 0 auto;
+    color: whitesmoke;
     font-family: 'Roboto', sans-serif;
     font-size: 14pt;
 }
@@ -16,4 +28,8 @@ body {
 .column {
     color: whitesmoke;
     border-radius: 2%;
+}
+
+.bigText {
+    font-size: 20px;
 }
