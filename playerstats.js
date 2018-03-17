@@ -10,3 +10,10 @@ var computer = {
 }
 //player Inventory object
 var playerInv = []
+
+//update money and stats
+function updateStats() {
+    playerStats.innerText = "Name: " + player.name + "\n";
+    playerStats.innerText += "Hp: " + player.hp;
+    playerMoney.innerText = player.money;
+}

@@ -8,17 +8,23 @@ for (i = 0; i < progress.max; i++) {
 if (progress.value >= 100) {
     $('#progress1').css('visibility', 'hidden');
 }
+$('#hold').css('visibility', 'hidden');
+
+//run change location to get default prices once
+changeLocation();
+var timerNum = 0; //number of timers created
 ////
 var locationText = document.getElementById("loc");
 var locationDes = document.getElementById("locDescription");
-$('#hold').css('visibility', 'hidden');
 var descriptText = document.getElementById("descriptText");
 var eventText = document.getElementById("eventArea");
-
 var invenPlayer = document.getElementById("playerInventory");
 var playerStats = document.getElementById("playerStatus");
 var playerMoney = document.getElementById("playerMoney")
 
+function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 function hideItems() {
     document
         .getElementById("buyItem1")
@@ -65,6 +71,10 @@ function button(obj, id) {
         case btn1:
             locationText.innerText = "Detroit: " + loc1.name;
             locationDes.innerText = "Description: " + loc1.desc;
+            updateStats();
+            changeLocation();
+            updateMerch();
+
             eventText.innerText = loc1.randomEvent();
 
             break;
@@ -72,18 +82,28 @@ function button(obj, id) {
         case btn2:
             locationText.innerText = "Detroit: " + loc2.name;
             locationDes.innerText = "Description: " + loc2.desc;
+            updateStats();
+            changeLocation();
+            updateMerch();
+            createTimer();
             eventText.innerText = loc1.randomEvent();
             break;
 
         case btn3:
             locationText.innerText = "Detroit: " + loc3.name;
             locationDes.innerText = "Description: " + loc3.desc;
+            updateStats();
+            changeLocation();
+            updateMerch();
             eventText.innerText = loc1.randomEvent();
             break;
 
         case btn4:
             locationText.innerText = "Detroit: " + loc4.name;
             locationDes.innerText = "Description: " + loc4.desc;
+            updateStats();
+            changeLocation();
+            updateMerch();
             eventText.innerText = loc1.randomEvent();
             break;
 
@@ -251,25 +271,35 @@ function sellItems(name, amt, price, bnum) {
 
 }
 
-//update money and stats
-function updateStats() {
-    playerStats.innerText = "Name: " + player.name + "\n";
-    playerStats.innerText += "Hp: " + player.hp;
-    playerMoney.innerText = player.money;
-}
 //populate Player inventory.
 function updateInv() {
-    invenPlayer.innerText = "";
+    invenPlayer.innerText = "Inventory:\n";
     for (i = 0; i < playerInv.length; i++) {
         if (playerInv[i].amount == 0) {
             playerInv.splice(i, 1);
         }
-        invenPlayer.innerText += "\n Name: " + playerInv[i].name;
-        invenPlayer.innerText += " Owned: " + playerInv[i].amount;
+        invenPlayer.innerText += "Name: " + playerInv[i].name;
+        invenPlayer.innerText += " Owned: " + playerInv[i].amount + "\n";
 
     }
 
 }
+$('#btn1').click();
+
 updateInv();
 updateMerch();
 updateStats();
+
+function createTimer() {
+    timerNum++;
+    var timeBar = new $('<progress class="progress" id="timeBar" value="0" max="100">Help</progress>').appendTo('body');
+    var timeBar = document.getElementById("timeBar");
+    if (timeBar.value < 100) {
+        setInterval(function () {
+            timeBar.value += 1;
+        }, 10);
+    }
+    setTimeout(() => {
+        $(timeBar).remove();
+    }, 1100);
+}
