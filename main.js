@@ -1,13 +1,5 @@
 //THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
-var progress = document.getElementById("progress1");
-for (i = 0; i < progress.max; i++) {
 
-    progress.value += 1;
-
-};
-if (progress.value >= 100) {
-    $('#progress1').css('visibility', 'hidden');
-}
 $('#hold').css('visibility', 'hidden');
 
 //run change location to get default prices once
@@ -74,6 +66,7 @@ function button(obj, id) {
             updateStats();
             changeLocation();
             updateMerch();
+            createTimer();
             eventText.innerText = loc1.randomEvent();
 
             break;
@@ -81,11 +74,12 @@ function button(obj, id) {
         case btn2:
             locationText.innerText = "Detroit: " + loc2.name;
             locationDes.innerText = "Description: " + loc2.desc;
+            eventText.innerText = loc1.randomEvent();
             updateStats();
             changeLocation();
             updateMerch();
             createTimer();
-            eventText.innerText = loc1.randomEvent();
+
             break;
 
         case btn3:
@@ -94,6 +88,7 @@ function button(obj, id) {
             updateStats();
             changeLocation();
             updateMerch();
+            createTimer();
             eventText.innerText = loc1.randomEvent();
             break;
 
@@ -103,6 +98,7 @@ function button(obj, id) {
             updateStats();
             changeLocation();
             updateMerch();
+            createTimer();
             eventText.innerText = loc1.randomEvent();
             break;
 
@@ -291,9 +287,19 @@ updateStats();
 
 ///TIMER ALPHA1.0
 function createTimer() {
-    timerNum++;
+    //for the main column
+    $("#bounce")
+        .fadeTo("slow", 0.4, function () {
 
-    var timeBar = $('<progress class="progress is-danger" id="timer' + timerNum + '" value=" 0 " max=" 100 ">Help</progress>').appendTo('body');
+            // Animation complete.
+        });
+    $("button").attr("disabled", true); //disables buttons on change
+    var whereVar = $('.col1');
+
+    timerNum++;
+    $("#bounce").toggleClass("bounce");
+
+    var timeBar = $('<progress class="progress is-danger" id="timer' + timerNum + '" value=" 0 " max=" 100 ">Help</progress>').appendTo(whereVar);
     var timerBar = {
         num: timerNum,
         val: document
@@ -311,5 +317,10 @@ function createTimer() {
     setTimeout(() => {
         //alert(timerBar.val);
         $(timerBar.ele).remove();
+        $("#bounce").toggleClass("bounce");
+        $("button").attr("disabled", false);
+        $("#bounce").fadeTo("slow", 1, function () {
+            // Animation complete.
+        });
     }, 1100);
 }

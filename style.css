@@ -2,16 +2,12 @@
     visibility: hidden;
 }
 
-#progress1 {
-    position: absolute;
-    margin-top: 100px;
-}
-
 html {
     width: 100%;
     margin: 0 auto;
     background-color: black;
     background: linear-gradient(to right, rgb(44, 9, 28), rgb(78, 156, 207));
+    overflow: hidden;
 }
 
 body {
@@ -32,4 +28,31 @@ body {
 
 .bigText {
     font-size: 20px;
+}
+
+.blackout {
+    background: black;
+    color: black;
+}
+
+button {
+    z-index: 10;
+    margin-top: 10px;
+}
+
+em {
+    padding: 2px;
+    font-size: 14pt;
+}
+
+#loc {
+    color: red;
+}
+
+#locDescription {
+    color: blue;
+}
+
+.message-body {
+    background-color: ghostwhite;
 }

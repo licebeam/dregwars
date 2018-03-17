@@ -1,0 +1,33 @@
+function createTimer() {
+    var whereVar = $('.col1');
+
+    timerNum++;
+    $("#bounce").toggleClass("bounce");
+    $("#bounce").fadeTo("slow", 0.4, function () {
+        // Animation complete.
+    });
+    var timeBar = $('<progress class="progress is-danger" id="timer' + timerNum + '" value=" 0 " max=" 100 ">Help</progress>').appendTo(whereVar);
+    var timerBar = {
+        num: timerNum,
+        val: document
+            .getElementById("timer" + timerNum)
+            .value,
+        ele: document.getElementById("timer" + timerNum)
+    }
+    //alert(timerBar.val);
+    if (timerBar.val <= 100) {
+        timerBar.ele.max = 100;
+        setInterval(function () {
+            timerBar.ele.value += 1;
+        }, 10);
+    }
+    setTimeout(() => {
+        //alert(timerBar.val);
+        $(timerBar.ele).remove();
+        $("#bounce").toggleClass("bounce");
+
+        $("#bounce").fadeTo("slow", 1, function () {
+            // Animation complete.
+        });
+    }, 1100);
+}

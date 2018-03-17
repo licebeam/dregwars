@@ -14,48 +14,48 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
         crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css">
 </head>
 
 <body>
-    <progress id="progress1" class="progress" value="0" max="1000">dynamicVal</progress>
 
     <div class="container is-fluid" id="hold">
         <!--Bulma Container -->
 
         <div class="columns">
-            <div id="bounce" class="column is-narrow animated">
-                <article class="message is-info">
-                    <div class="message-header">
-                        Location:
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="message-body">
-                        <!-- Main Wrapper -->
-                        <span id="loc">Detroit: Downtown </span>
-                        <span id="locDescription">Description: </span>
-                        <!-- Shows Player Location -->
-                        <div class="bottomBar">
-                            <!--Button Holder-->
-                            <button id="btn1" class="button" onclick="button(this,btn1)">Downtown</button>
-                            <button id="btn2" class="button" onclick="button(this,btn2)">East Side</button>
-                            <button id="btn3" class="button" onclick="button(this,btn3)">West Side</button>
-                            <button id="btn4" class="button" onclick="button(this,btn4)">South End</button>
+            <div id="bounce" class="column col1">
+                <div id="bounce" class="column animated">
+                    <article class="message is-info ">
+                        <div class="message-header">
+                            Location:
+                            <i class="fas fa-home"></i>
                         </div>
+                        <div class="message-body">
+                            <!-- Main Wrapper -->
+                            <p id="loc">Detroit: Downtown </p>
+                            <p id="locDescription"></p>
+                            <!-- Shows Player Location -->
+                            <div class="bottomBar buttons  is-centered">
+                                <!--Button Holder-->
+                                <button id="btn1" class="button  is-info hvr-grow-shadow" onclick="button(this,btn1)">Downtown</button>
+                                <button id="btn2" class="button is-info hvr-grow-shadow" onclick="button(this,btn2)">East Side</button>
+                                <button id="btn3" class="button is-info hvr-grow-shadow" onclick="button(this,btn3)">West Side</button>
+                                <button id="btn4" class="button   is-info hvr-grow-shadow" onclick="button(this,btn4)">South End</button>
+                            </div>
 
 
-                        <div class="mainBody">
-                            <!--Location Image Text and Info-->
-                            <figure class="image is-400x300">
-                                <img class="imgMain" src="images/citysunset.png" alt="">
-                            </figure>
+                            <div class="mainBody">
+                                <!--Location Image Text and Info-->
+                                <figure class="image is-400x300">
+                                    <img class="imgMain" src="images/citysunset.png" alt="">
+                                </figure>
 
+                            </div>
                         </div>
-                    </div>
-                </article>
-
-                <div id="bounce" class="column is-narrow animated">
-                    <article class="message is-info">
+                    </article>
+                </div>
+                <div id="bounce" class="nearby column animated ">
+                    <article class="message is-dark">
                         <div class="message-header">
                             Nearby:
 
@@ -64,8 +64,8 @@
                         <div class="message-body">
                             <div class="rightBar">
                                 <!--Button Holder 2-->
-                                <button id="btnSe" class="button" onclick="button(this,btnSe)">Search Area</button>
-                                <button id="btnTa" class="button" onclick="button(this,btnTa)">Talk to </button>
+                                <button id="btnSe" class="button is-info hvr-grow-shadow" onclick="button(this,btnSe)">Search Area</button>
+                                <button id="btnTa" class="button is-info hvr-grow-shadow" onclick="button(this,btnTa)">Talk to </button>
                                 <span id="dealerName">BOB</span>
                             </div>
 
@@ -80,49 +80,50 @@
                 </div>
 
             </div>
-            <div class="column ">
-
-                <div class="buyMenu">
-                    <article class="message is-info">
-                        <div class="message-header">
-                            Shop Information
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="message-body">
-                            <div id="buyItem1">
-                                <em id="buyName1">null</em>
-                                <em id="buyPrice1">null</em>
-                                <em id="buynum1">null</em>
-                                <button id="buyBtn1" class="button" onclick="button(this,buyBtn1)">Buy</button>
-                                <button id="sellBtn1" class="button" onclick="button(this,sellBtn1)">Sell</button>
+            <div id="" class="column">
+                <div class="column is-narrow">
+                    <div id="bounce" class="buyMenu">
+                        <article class="message is-info">
+                            <div class="message-header">
+                                Shop Information
+                                <i class="fas fa-shopping-cart"></i>
                             </div>
+                            <div class="message-body buttons is-right">
+                                <div id="buyItem1">
+                                    <em id="buyName1">null</em>
+                                    <em id="buyPrice1">null</em>
+                                    <em id="buynum1">null</em>
+                                    <button id="buyBtn1" class="button is-success hvr-grow-shadow" onclick="button(this,buyBtn1)">Buy</button>
+                                    <button id="sellBtn1" class="button is-danger hvr-grow-shadow" onclick="button(this,sellBtn1)">Sell</button>
+                                </div>
 
-                            <div id="buyItem2">
-                                <em id="buyName2">null</em>
-                                <em id="buyPrice2">null</em>
-                                <em id="buynum2">null</em>
-                                <button id="buyBtn2" class="button" onclick="button(this,buyBtn2)">Buy</button>
-                                <button id="sellBtn2" class="button" onclick="button(this,sellBtn2)">Sell</button>
-                            </div>
+                                <div id="buyItem2">
+                                    <em id="buyName2">null</em>
+                                    <em id="buyPrice2">null</em>
+                                    <em id="buynum2">null</em>
+                                    <button id="buyBtn2" class="button is-success hvr-grow-shadow" onclick="button(this,buyBtn2)">Buy</button>
+                                    <button id="sellBtn2" class="button is-danger hvr-grow-shadow" onclick="button(this,sellBtn2)">Sell</button>
+                                </div>
 
-                            <div id="buyItem3">
-                                <em id="buyName3">null</em>
-                                <em id="buyPrice3">null</em>
-                                <em id="buynum3">null</em>
-                                <button id="buyBtn3" class="button" onclick="button(this,buyBtn3)">Buy</button>
-                                <button id="sellBtn3" class="button" onclick="button(this,sellBtn3)">Sell</button>
-                            </div>
+                                <div id="buyItem3">
+                                    <em id="buyName3">null</em>
+                                    <em id="buyPrice3">null</em>
+                                    <em id="buynum3">null</em>
+                                    <button id="buyBtn3" class="button is-success hvr-grow-shadow" onclick="button(this,buyBtn3)">Buy</button>
+                                    <button id="sellBtn3" class="button is-danger hvr-grow-shadow" onclick="button(this,sellBtn3)">Sell</button>
+                                </div>
 
-                            <div id="buyItem4">
-                                <em id="buyName4">null</em>
-                                <em id="buyPrice4">null</em>
-                                <em id="buynum4">null</em>
-                                <button id="buyBtn4" class="button" onclick="button(this,buyBtn4)">Buy</button>
-                                <button id="sellBtn4" class="button" onclick="button(this,sellBtn4)">Sell</button>
+                                <div id="buyItem4">
+                                    <em id="buyName4">null</em>
+                                    <em id="buyPrice4">null</em>
+                                    <em id="buynum4">null</em>
+                                    <button id="buyBtn4" class="button is-success hvr-grow-shadow" onclick="button(this,buyBtn4)">Buy</button>
+                                    <button id="sellBtn4" class="button is-danger hvr-grow-shadow" onclick="button(this,sellBtn4)">Sell</button>
+                                </div>
                             </div>
-                        </div>
+                    </div>
+                    </article>
                 </div>
-                </article>
                 <div class="column">
                     <article class="message is-dark">
                         <div class="message-header">
@@ -151,17 +152,19 @@
                 </div>
             </div>
             <div class="column">
-                <article class="message is-info">
-                    <div class="message-header">
-                        Player Information
+                <div class="column is-narrow">
+                    <article class="message is-info">
+                        <div class="message-header">
+                            Player Information
 
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="message-body">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="message-body">
 
-                        <span id="playerStatus"> STATS OF PLAYER</span>
-                    </div>
-                </article>
+                            <span id="playerStatus"> STATS OF PLAYER</span>
+                        </div>
+                    </article>
+                </div>
 
                 <div class="column is-narrow">
                     <article class="message is-info">
@@ -203,12 +206,20 @@
     </div>
 
     <script>
+        $('button')
+            .click(function () {
+                $('button').addClass('is-focus');
+            });
+
         window.onload = function () {
 
             setTimeout(function () {
                 $('#hold').css('visibility', 'visible');
                 $('#bounce').addClass('bounce');
+                $('#bounce').toggleClass('bounce');
             }, 1000);
+
+
         }; //preloader
     </script>
 
