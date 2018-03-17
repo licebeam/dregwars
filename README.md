@@ -1,7 +1,11 @@
 # dregwars
-Simple java-script game modeled after a classic. 
+Pre-Alpha Prototype.
 
+This is a Cyberpunk variation on the popular DrugWars game.
+
+Built With: 
+HTML, CSS, Javascript, BULMA, JQuery, Animate.css and Font Awesome.
 
 Check it out at https://licebeam.github.io/dregwars/
 
-It is a work in progress, will be updated over the course of a few weeks. 
+This is a heavy work in progress. 

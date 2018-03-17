@@ -74,7 +74,6 @@ function button(obj, id) {
             updateStats();
             changeLocation();
             updateMerch();
-
             eventText.innerText = loc1.randomEvent();
 
             break;
@@ -290,16 +289,27 @@ updateInv();
 updateMerch();
 updateStats();
 
+///TIMER ALPHA1.0
 function createTimer() {
     timerNum++;
-    var timeBar = new $('<progress class="progress" id="timeBar" value="0" max="100">Help</progress>').appendTo('body');
-    var timeBar = document.getElementById("timeBar");
-    if (timeBar.value < 100) {
+
+    var timeBar = $('<progress class="progress is-danger" id="timer' + timerNum + '" value=" 0 " max=" 100 ">Help</progress>').appendTo('body');
+    var timerBar = {
+        num: timerNum,
+        val: document
+            .getElementById("timer" + timerNum)
+            .value,
+        ele: document.getElementById("timer" + timerNum)
+    }
+    //alert(timerBar.val);
+    if (timerBar.val <= 100) {
+        timerBar.ele.max = 100;
         setInterval(function () {
-            timeBar.value += 1;
+            timerBar.ele.value += 1;
         }, 10);
     }
     setTimeout(() => {
-        $(timeBar).remove();
+        //alert(timerBar.val);
+        $(timerBar.ele).remove();
     }, 1100);
 }
