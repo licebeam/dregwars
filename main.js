@@ -2,7 +2,7 @@
 
 $('#hold').css('visibility', 'hidden');
 
-//run change location to get default prices once
+//run change location to get default prices once when the game starts
 changeLocation();
 var timerNum = 0; //number of timers created
 ////
@@ -279,11 +279,14 @@ function updateInv() {
     }
 
 }
-$('#btn1').click();
+var firstLoad = false;
+if (firstLoad === false) {
+    $('#btn1').click();
+    updateInv();
+    updateMerch();
+    updateStats();
 
-updateInv();
-updateMerch();
-updateStats();
+}
 
 ///TIMER ALPHA1.0
 function createTimer() {
@@ -315,12 +318,29 @@ function createTimer() {
         }, 10);
     }
     setTimeout(() => {
+        if (firstLoad === true) {
+            modalLoad("The Day has changed//", "This is where events like finding items and getting into battle with cops will s" +
+                    "how");
+        }
+
         //alert(timerBar.val);
         $(timerBar.ele).remove();
         $("#bounce").toggleClass("bounce");
         $("button").attr("disabled", false);
         $("#bounce").fadeTo("slow", 1, function () {
             // Animation complete.
+
+            firstLoad = true; //make sure the initial modal does not come back
         });
     }, 1100);
 }
+function modalLoad(t1, t2) {
+    $('.modal-card-title').text(t1);
+    $('.modalBody').text(t2);
+
+    $('.modal').addClass('is-active');
+}
+$('button.delete')
+    .click(function () {
+        $('.modal').removeClass('is-active');
+    });

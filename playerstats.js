@@ -1,7 +1,7 @@
 var player = {
     name: "fake",
     hp: 5,
-    money: 10000,
+    money: 1000,
     bagspace: 10
 }
 

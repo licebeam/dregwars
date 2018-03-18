@@ -6,13 +6,13 @@ html {
     width: 100%;
     margin: 0 auto;
     background-color: black;
-    background: linear-gradient(to right, rgb(44, 9, 28), rgb(78, 156, 207));
+    background: linear-gradient(to right, #004358, #1F8A70);
     overflow: hidden;
 }
 
 body {
     margin: 0 auto;
-    color: whitesmoke;
+    color: #EEEFF7;
     font-family: 'Roboto', sans-serif;
     font-size: 14pt;
 }
@@ -22,8 +22,8 @@ body {
 }
 
 .column {
-    color: whitesmoke;
-    border-radius: 2%;
+    color: #EEEFF7;
+    height: 100%;
 }
 
 .bigText {
@@ -53,6 +53,18 @@ em {
     color: blue;
 }
 
-.message-body {
-    background-color: ghostwhite;
+.message-body,
+.modal-card {
+    background-color: #31353D;
+    color: #EEEFF7;
+    color: #92CDCF;
+    border: #445878;
+}
+
+.message-header {
+    background-color: #1C1D21;
+}
+
+.modal {
+    visibility: visible;
 }

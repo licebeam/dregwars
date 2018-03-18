@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dreg Wars</title>
+    <title>Dreg Wars PRE-ALPHA</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css">
@@ -25,7 +25,7 @@
         <div class="columns">
             <div id="bounce" class="column col1">
                 <div id="bounce" class="column animated">
-                    <article class="message is-info ">
+                    <article class="message">
                         <div class="message-header">
                             Location:
                             <i class="fas fa-home"></i>
@@ -55,7 +55,7 @@
                     </article>
                 </div>
                 <div id="bounce" class="nearby column animated ">
-                    <article class="message is-dark">
+                    <article class="message">
                         <div class="message-header">
                             Nearby:
 
@@ -83,7 +83,7 @@
             <div id="" class="column">
                 <div class="column is-narrow">
                     <div id="bounce" class="buyMenu">
-                        <article class="message is-info">
+                        <article class="message">
                             <div class="message-header">
                                 Shop Information
                                 <i class="fas fa-shopping-cart"></i>
@@ -125,7 +125,7 @@
                     </article>
                 </div>
                 <div class="column">
-                    <article class="message is-dark">
+                    <article class="message">
                         <div class="message-header">
                             Player Inventory
 
@@ -138,7 +138,7 @@
                     </article>
                 </div>
                 <div class="column">
-                    <article class="message is-danger">
+                    <article class="message">
                         <div class="message-header bigText">
                             Bank Information
 
@@ -153,7 +153,7 @@
             </div>
             <div class="column">
                 <div class="column is-narrow">
-                    <article class="message is-info">
+                    <article class="message">
                         <div class="message-header">
                             Player Information
 
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="column is-narrow">
-                    <article class="message is-info">
+                    <article class="message">
                         <div class="message-header">
                             Program Information//
 
@@ -180,7 +180,7 @@
                     </article>
                 </div>
                 <div class="column is-narrow">
-                    <article class="message is-info">
+                    <article class="message ">
                         <div class="message-header">
                             Computer Information//
 
@@ -196,8 +196,22 @@
                 </div>
             </div>
 
-
-
+            <!--MODAL POPUP-->
+            <div class="modal ">
+                <div class="modal-background"></div>
+                <div class="modal-card animated fadeInLeft">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title">Welcome to Dreg Wars - PRE_ALPHA//</p>
+                        <button class="delete" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <p class="modalBody">This game is still under construction.</p>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <!--BUTTONS GO HERE LATER-->
+                    </footer>
+                </div>
+            </div>
 
         </div>
 
@@ -214,9 +228,18 @@
         window.onload = function () {
 
             setTimeout(function () {
+                //first modal load
+                $('.modal').addClass('is-active');
+
+                $('button.delete')
+                    .click(function () {
+                        $('.modal').removeClass('is-active');
+                    });
+
                 $('#hold').css('visibility', 'visible');
                 $('#bounce').addClass('bounce');
-                $('#bounce').toggleClass('bounce');
+                $('#bounce').toggleClass(
+                    'bounce');
             }, 1000);
 
 
@@ -224,10 +247,10 @@
     </script>
 
 </body>
-<script src="playerstats.js "></script>
+
 <script src="itemdetails.js "></script>
 <script src="loc.js "></script>
-
+<script src="playerstats.js "></script>
 <script src="main.js "></script>
 
 </html>
