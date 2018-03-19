@@ -1,70 +1,97 @@
 #hold {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 html {
-    width: 100%;
-    margin: 0 auto;
-    background-color: black;
-    background: linear-gradient(to right, #004358, #1F8A70);
-    overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background-color: black;
+  background: linear-gradient(to right, #004358, #1f8a70);
+  overflow: hidden;
 }
 
 body {
-    margin: 0 auto;
-    color: #EEEFF7;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14pt;
+  margin: 0 auto;
+  color: #eeeff7;
+  font-family: "Roboto", sans-serif;
+  font-size: 14pt;
 }
 
 .container {
-    margin-top: 2%;
+  margin-top: 2%;
 }
 
 .column {
-    color: #EEEFF7;
-    height: 100%;
+  color: #eeeff7;
 }
 
 .bigText {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .blackout {
-    background: black;
-    color: black;
+  background: black;
+  color: black;
 }
-
+#eventArea {
+  color: orange;
+  text-align: center;
+}
 button {
-    z-index: 10;
-    margin-top: 10px;
+  z-index: 10;
+  margin-bottom: 10px;
+  padding-right: 10px;
 }
 
 em {
-    padding: 2px;
-    font-size: 14pt;
+  margin-right: 10px;
+
+  font-size: 14pt;
 }
 
 #loc {
-    color: red;
 }
 
 #locDescription {
-    color: blue;
 }
 
 .message-body,
 .modal-card {
-    background-color: #31353D;
-    color: #EEEFF7;
-    color: #92CDCF;
-    border: #445878;
+  background-color: #31353d;
+  color: #eeeff7;
+  color: #92cdcf;
+  border: #445878;
 }
 
 .message-header {
-    background-color: #1C1D21;
+  background-color: #1c1d21;
 }
 
 .modal {
-    visibility: visible;
+  visibility: visible;
+}
+#mainBody {
+  height: 470px;
+}
+#nearBody {
+  height: 100px;
+}
+#buyBody {
+  height: 240px;
+}
+#invBody {
+  height: 240px;
+}
+#moneyBody {
+  height: 90px;
+}
+
+#statsBody {
+  height: 100px;
+}
+#progBody {
+  height: 200px;
+}
+#compBody {
+  height: 240px;
 }
