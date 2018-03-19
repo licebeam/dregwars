@@ -83,7 +83,7 @@ em {
   height: 240px;
 }
 #moneyBody {
-  height: 90px;
+  height: 80px;
 }
 
 #statsBody {
@@ -94,4 +94,16 @@ em {
 }
 #compBody {
   height: 240px;
+}
+#loanButton {
+  float: right;
+}
+#playerLoan {
+  padding-right: 10px;
+  color: orange;
+  float: right;
+}
+
+.disableMouse {
+  pointer-events: none;
 }

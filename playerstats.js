@@ -1,10 +1,12 @@
 var player = {
   name: "fake",
   hp: 5,
-  money: 1000, //current cash
+  money: 10000000, //current cash
   bagspace: 5, //max inv
   invNum: 0, //current inv
-  day: 1 //current Day
+  day: 1, //current Day
+  loan: 1000000, //loan amount
+  loanday: 30 //days until game over
 };
 
 var computer = {
@@ -19,4 +21,5 @@ function updateStats() {
   playerStats.innerText += "Hp: " + player.hp;
   playerMoney.innerText = player.money;
   $("#playDate").text("Day: " + player.day);
+  $("#playerLoan").text(" Loan: " + player.loan);
 }

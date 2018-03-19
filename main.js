@@ -1,7 +1,7 @@
 //THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
 
 $("#hold").css("visibility", "hidden");
-
+var dayChange = false;
 //run change location to get default prices once when the game starts
 changeLocation();
 
@@ -14,7 +14,8 @@ var eventText = document.getElementById("eventArea");
 var invenPlayer = document.getElementById("playerInventory");
 var playerStats = document.getElementById("playerStatus");
 var playerMoney = document.getElementById("playerMoney");
-
+//this var checks if the inital loan is payed off.
+var initLoan = false; //false = not paid////
 function getRandomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -34,136 +35,156 @@ function showItems() {
 }
 
 //MAIN Button menu
-function button(obj, id) {
-  switch (id) {
-    case btn1:
-      locationText.innerText = "Detroit: " + loc1.name;
-      locationDes.innerText = "Description: " + loc1.desc;
-      eventText.innerText = loc1.randomEvent();
-      changeLocation();
-      if (player.day !== 1) {
-        event(eventText.innerText);
-      } else {
-        eventText.innerText = "No Event";
-      }
-      createTimer();
+if (dayChange === false) {
+  function button(obj, id) {
+    switch (id) {
+      case btn1:
+        locationText.innerText = "Detroit: " + loc1.name;
+        locationDes.innerText = "Description: " + loc1.desc;
+        eventText.innerText = loc1.randomEvent();
+        changeLocation();
+        if (player.day !== 1) {
+          event(eventText.innerText);
+          if (player.loanday <= 0) {
+            loseGame();
+          }
+        } else {
+          eventText.innerText = "No Event";
+        }
+        createTimer();
 
-      break;
+        break;
 
-    case btn2:
-      locationText.innerText = "Detroit: " + loc2.name;
-      locationDes.innerText = "Description: " + loc2.desc;
-      eventText.innerText = loc1.randomEvent();
-      changeLocation();
-      if (player.day !== 1) {
-        event(eventText.innerText);
-      } else {
-        eventText.innerText = "No Event";
-      }
-      createTimer();
-      break;
+      case btn2:
+        locationText.innerText = "Detroit: " + loc2.name;
+        locationDes.innerText = "Description: " + loc2.desc;
+        eventText.innerText = loc1.randomEvent();
+        changeLocation();
+        if (player.day !== 1) {
+          event(eventText.innerText);
+          if (player.loanday <= 0) {
+            loseGame();
+          }
+        } else {
+          eventText.innerText = "No Event";
+        }
+        createTimer();
+        break;
 
-    case btn3:
-      locationText.innerText = "Detroit: " + loc3.name;
-      locationDes.innerText = "Description: " + loc3.desc;
-      eventText.innerText = loc1.randomEvent();
-      changeLocation();
-      if (player.day !== 1) {
-        event(eventText.innerText);
-      } else {
-        eventText.innerText = "No Event";
-      }
-      createTimer();
-      break;
+      case btn3:
+        locationText.innerText = "Detroit: " + loc3.name;
+        locationDes.innerText = "Description: " + loc3.desc;
+        eventText.innerText = loc1.randomEvent();
+        changeLocation();
+        if (player.day !== 1) {
+          event(eventText.innerText);
+          if (player.loanday <= 0) {
+            loseGame();
+          }
+        } else {
+          eventText.innerText = "No Event";
+        }
+        createTimer();
+        break;
 
-    case btn4:
-      locationText.innerText = "Detroit: " + loc4.name;
-      locationDes.innerText = "Description: " + loc4.desc;
-      eventText.innerText = loc1.randomEvent();
-      changeLocation();
-      if (player.day !== 1) {
-        event(eventText.innerText);
-      } else {
-        eventText.innerText = "No Event";
-      }
-      createTimer();
-      break;
+      case btn4:
+        locationText.innerText = "Detroit: " + loc4.name;
+        locationDes.innerText = "Description: " + loc4.desc;
+        eventText.innerText = loc1.randomEvent();
+        changeLocation();
+        if (player.day !== 1) {
+          event(eventText.innerText);
+          if (player.loanday <= 0) {
+            loseGame();
+          }
+        } else {
+          eventText.innerText = "No Event";
+        }
+        createTimer();
+        break;
 
-    case btnSe: //search button
-      descriptText.innerText = loc1.searchEvent();
-      //hideItems();
-      break;
+      case btnSe: //search button
+        descriptText.innerText = loc1.searchEvent();
+        //hideItems();
+        break;
 
-    case btnTa: // this should populate the buy menu with dom elements
-      descriptText.innerText = "Talking to Bob";
-      //showItems();
-      break;
+      case btnTa: // this should populate the buy menu with dom elements
+        descriptText.innerText = "Talking to Bob";
+        //showItems();
+        break;
 
-    ///buttons for item buys
-    case buyBtn1:
-      if (
-        item1.amount >= 1 &&
-        player.money >= item1.value &&
-        player.invNum < player.bagspace
-      ) {
-        buyItems(buyName1, 1, item1.value);
-        item1.amount -= 1;
-      }
+      ///buttons for item buys
+      case buyBtn1:
+        if (
+          item1.amount >= 1 &&
+          player.money >= item1.value &&
+          player.invNum < player.bagspace
+        ) {
+          buyItems(buyName1, 1, item1.value);
+          item1.amount -= 1;
+        }
 
-      break;
+        break;
 
-    case sellBtn1:
-      sellItems(buyName1, 1, item1.value, 1); //bnum is button num for item
+      case sellBtn1:
+        sellItems(buyName1, 1, item1.value, 1); //bnum is button num for item
+        break;
 
-      break;
+      case buyBtn2:
+        if (
+          item2.amount >= 1 &&
+          player.money >= item2.value &&
+          player.invNum < player.bagspace
+        ) {
+          buyItems(buyName2, 1, item2.value);
+          item2.amount -= 1;
+        }
+        break;
 
-    case buyBtn2:
-      if (
-        item2.amount >= 1 &&
-        player.money >= item2.value &&
-        player.invNum < player.bagspace
-      ) {
-        buyItems(buyName2, 1, item2.value);
-        item2.amount -= 1;
-      }
-      break;
+      case sellBtn2:
+        sellItems(buyName2, 1, item2.value, 2); //bnum is button num for item
+        break;
 
-    case sellBtn2:
-      sellItems(buyName2, 1, item2.value, 2); //bnum is button num for item
-      break;
+      case buyBtn3:
+        if (
+          item3.amount >= 1 &&
+          player.money >= item3.value &&
+          player.invNum < player.bagspace
+        ) {
+          buyItems(buyName3, 1, item3.value);
+          item3.amount -= 1;
+        }
+        break;
 
-    case buyBtn3:
-      if (
-        item3.amount >= 1 &&
-        player.money >= item3.value &&
-        player.invNum < player.bagspace
-      ) {
-        buyItems(buyName3, 1, item3.value);
-        item3.amount -= 1;
-      }
-      break;
+      case sellBtn3:
+        sellItems(buyName3, 1, item3.value, 3); //bnum is button num for item
+        break;
 
-    case sellBtn3:
-      sellItems(buyName3, 1, item3.value, 3); //bnum is button num for item
-      break;
+      case buyBtn4:
+        if (
+          item4.amount >= 1 &&
+          player.money >= item4.value &&
+          player.invNum < player.bagspace
+        ) {
+          buyItems(buyName4, 1, item4.value);
+          item4.amount -= 1;
+        }
+        break;
 
-    case buyBtn4:
-      if (
-        item4.amount >= 1 &&
-        player.money >= item4.value &&
-        player.invNum < player.bagspace
-      ) {
-        buyItems(buyName4, 1, item4.value);
-        item4.amount -= 1;
-      }
-      break;
+      case sellBtn4:
+        sellItems(buyName4, 1, item4.value, 4); //bnum is button num for item
+        break;
 
-    case sellBtn4:
-      sellItems(buyName4, 1, item4.value, 4); //bnum is button num for item
-      break;
+      case loanButton:
+        if (player.money >= player.loan) {
+          player.money -= player.loan;
+          player.loan = 0;
+          winGame();
+        }
+        break;
+    }
   }
 }
-
 //function for buying item
 function buyItems(name, amt, price) {
   //finally works!!!!
@@ -193,6 +214,7 @@ function buyItems(name, amt, price) {
 
 function sellItems(name, amt, price, bnum) {
   //SELLING FUNCTION
+
   let itemSeller = playerInv.some(playerInv => playerInv.name === name);
   for (i = 0; i < playerInv.length; i++) {
     if (playerInv[i].name == name && itemSeller === true) {
@@ -247,15 +269,17 @@ if (firstLoad === false) {
 
 ///TIMER ALPHA1.0
 function createTimer() {
+  dayChange = true;
   //for the main column
+  $("#bounce").addClass("bounce");
   $("#eventArea").css("visibility", "hidden");
   $("#bounce").fadeTo("slow", 0.4, function() {
     // Animation complete.
   });
   $("button").attr("disabled", true); //disables buttons on change
+  $("#moneyBody").focus(); //strange button bug fix?
   var whereVar = $(".col1");
   timerNum++;
-  $("#bounce").toggleClass("bounce");
 
   var timeBar = $(
     '<progress class="progress is-danger" id="timer' +
@@ -278,6 +302,7 @@ function createTimer() {
     if (firstLoad === true) {
       //this is where you see events
       player.day += 1; //CHANGE DAYS
+      player.loanday -= 1;
       $("#eventArea").css("visibility", "visible");
       modalLoad(
         "//Day " + player.day + " is Starting...",
@@ -287,24 +312,27 @@ function createTimer() {
 
     //alert(timerBar.val);
     $(timerBar.ele).remove();
-    $("#bounce").toggleClass("bounce");
     $("button").attr("disabled", false);
-    $("#bounce").fadeTo("slow", 1, function() {
-      // Animation complete.
-
-      firstLoad = true; //make sure the initial modal does not come back
-    });
+    $("#bounce").removeClass("bounce");
   }, 1100);
 }
 
 function modalLoad(t1, t2) {
+  $(".modalBody").focus();
   $(".modal-card-title").text(t1);
   $(".modalBody").text(t2);
   $(".modalRand").text(eventText.innerText);
+  $(".loanDays").text("Days left to pay your loan: " + player.loanday);
   $(".modal").addClass("is-active");
 }
 $("button.delete").click(function() {
   $(".modal").removeClass("is-active");
+  $("#moneyBody").focus(); //strange button bug fix?
+  $("#bounce").fadeTo("slow", 1, function() {
+    // Animation complete.
+    firstLoad = true; //make sure the initial modal does not come back
+    dayChange = true;
+  });
 });
 
 ///UPDATE LOOP
@@ -324,7 +352,7 @@ function event(evText) {
       item1.value = item1.dvalue;
       item2.value = item2.dvalue;
       item3.value = item3.dvalue;
-      item4.value = item4.dvalue;
+      item4.value = item4g.dvalue;
 
       updateMerch();
 
@@ -343,4 +371,19 @@ function event(evText) {
 
       break;
   }
+}
+
+//change ability to use pointer events
+if (dayChange === true) {
+  $(".disableMouse").css("pointer-events", "all");
+}
+
+function winGame() {
+  alert("you win");
+  window.location.reload();
+}
+
+function loseGame() {
+  alert("you lose");
+  window.location.reload();
 }

@@ -12,9 +12,10 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.1.1/css/hover-min.css">
 </head>
 
 <body>
@@ -22,9 +23,9 @@
     <div class="container is-fluid" id="hold">
         <!--Bulma Container -->
 
-        <div class="columns">
-            <div id="bounce" class="column col1">
-                <div id="bounce" class="column animated">
+        <div class="columns disableMouse">
+            <div id="bounce" class="column col1 animated bounce">
+                <div id="bounce" class="column ">
                     <article class="message">
                         <div class="message-header">
                             Location:
@@ -139,16 +140,18 @@
                         </div>
                     </article>
                 </div>
-                <div id="colBank" class="column">
+                <div id="colBank" class="column animated">
                     <article class="message">
                         <div class="message-header bigText">
                             Bank Information
 
                             <i class="fas fa-folder"></i>
                         </div>
-                        <div id="monyBody" class="message-body">
+                        <div id="moneyBody" class="message-body">
                             <span class="bigText">$://</span>
-                            <span id="playerMoney" class="bigText"> STATS OF PLAYER</span>
+                            <span id="playerMoney" class="bigText "> STATS OF PLAYER</span>
+                            <button id="loanButton" class="button is-warning hvr-buzz" onclick="button(this,loanButton)">Pay</button>
+                            <span id="playerLoan" class="bigText"> STATS OF PLAYER</span>
                         </div>
                     </article>
                 </div>
@@ -198,28 +201,29 @@
                 </div>
             </div>
 
-            <!--MODAL POPUP-->
-            <div class="modal ">
-                <div class="modal-background"></div>
-                <div class="modal-card animated fadeInLeft">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">Welcome to Dreg Wars - PRE_ALPHA//</p>
-                        <button class="delete" aria-label="close"></button>
-                    </header>
-                    <section class="modal-card-body">
-                        <p class="modalBody">This game is still under construction.</p>
-                        <p class="modalRand"></p>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <!--BUTTONS GO HERE LATER-->
-                    </footer>
-                </div>
-            </div>
+
 
         </div>
 
     </div>
-
+    <!--MODAL POPUP-->
+    <div class="modal ">
+        <div class="modal-background"></div>
+        <div class="modal-card animated fadeInLeft">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Welcome to Dreg Wars - PRE_ALPHA//</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <p class="modalBody">This game is still under construction.</p>
+                <p class="modalRand"></p>
+                <p class="loanDays">You have 30 days to pay the loan shark or you lose.</p>
+            </section>
+            <footer class="modal-card-foot">
+                <!--BUTTONS GO HERE LATER-->
+            </footer>
+        </div>
+    </div>
     </div>
 
     <script>
@@ -240,9 +244,7 @@
                     });
 
                 $('#hold').css('visibility', 'visible');
-                $('#bounce').addClass('bounce');
-                $('#bounce').toggleClass(
-                    'bounce');
+
             }, 800);
 
 
