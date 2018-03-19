@@ -7,14 +7,13 @@ html {
   margin: 0 auto;
   background-color: black;
   background: linear-gradient(to right, #004358, #1f8a70);
-  overflow: hidden;
 }
 
 body {
   margin: 0 auto;
   color: #eeeff7;
   font-family: "Roboto", sans-serif;
-  font-size: 14pt;
+  font-size: 12pt;
 }
 
 .container {
@@ -46,7 +45,7 @@ button {
 em {
   margin-right: 10px;
 
-  font-size: 14pt;
+  font-size: 12pt;
 }
 
 #loc {
@@ -106,4 +105,24 @@ em {
 
 .disableMouse {
   pointer-events: none;
+}
+
+.modal-card-body {
+  background-color: #31353d;
+  border: #31353d;
+}
+.modal-card-head {
+  color: red;
+  background-color: #1c1d21;
+  border: #31353d;
+}
+.modal-card-foot {
+  color: red;
+  background-color: #1c1d21;
+  border: #31353d;
+}
+.modalRand,
+.modal-card-title {
+  font-size: 24px;
+  color: orange;
 }

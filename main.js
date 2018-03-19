@@ -21,7 +21,7 @@ function getRandomNum(min, max) {
 }
 
 function hideItems() {
-  $("#buyBody").fadeTo("slow", 0.1, function() {
+  $("#buyBody").fadeTo("fast", 0.1, function() {
     // Animation complete.
     document.getElementById("buyItem1").style.visibility = "hidden";
     document.getElementById("buyItem2").style.visibility = "hidden";
@@ -31,7 +31,7 @@ function hideItems() {
 }
 
 function showItems() {
-  $("#buyBody").fadeTo("slow", 1, function() {
+  $("#buyBody").fadeTo("fast", 1, function() {
     // Animation complete.
     document.getElementById("buyItem1").style.visibility = "visible";
     document.getElementById("buyItem2").style.visibility = "visible";
@@ -279,7 +279,36 @@ var firstLoad = false; //check if game has loaded real quick like
 if (firstLoad === false) {
   $("#btn1").click();
 }
+///function that checks which event is currently happening.
+function event(evText) {
+  switch (evText) {
+    case "No Event":
+      break;
 
+    case "Prices are low today!":
+      item1.value = 25;
+      item2.value = 500;
+      item3.value = 2000;
+      item4.value = 3000;
+
+      updateMerch();
+
+      break;
+
+    case "Prices are high today!":
+      item1.value = 10000;
+      item2.value = 20000;
+      item3.value = 30000;
+      item4.value = 40000;
+      updateMerch();
+      break;
+
+    case "You found $1,000 on your journey":
+      player.money += 1000;
+
+      break;
+  }
+}
 ///TIMER ALPHA1.0
 function createTimer() {
   dayChange = true;
@@ -327,7 +356,7 @@ function createTimer() {
     $(timerBar.ele).remove();
     $("button").attr("disabled", false);
     $("#bounce").removeClass("bounce");
-  }, 1100);
+  }, 1200);
 }
 
 function modalLoad(t1, t2) {
@@ -349,37 +378,6 @@ $("button.delete").click(function() {
   });
   setTimeout(() => {}, 400);
 });
-
-///function that checks which event is currently happening.
-function event(evText) {
-  switch (evText) {
-    case "No Event":
-      break;
-
-    case "Prices are low today!":
-      item1.value = item1.dvalue;
-      item2.value = item2.dvalue;
-      item3.value = item3.dvalue;
-      item4.value = item4g.dvalue;
-
-      updateMerch();
-
-      break;
-
-    case "Prices are high today!":
-      item1.value = 10000;
-      item2.value = 20000;
-      item3.value = 30000;
-      item4.value = 40000;
-      updateMerch();
-      break;
-
-    case "You found $1,000 on your journey":
-      player.money += 1000;
-
-      break;
-  }
-}
 
 //change ability to use pointer events
 if (dayChange === true) {
