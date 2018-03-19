@@ -38,7 +38,7 @@ loc4.name = "South End";
 loc4.desc = "The proverbial end.";
 
 //data structures for random events
-var searchResult = ["You found nothing", "You found something"];
+var searchResult = ["Gun", "Nothing"];
 var eventResult = [
   "It's Sunny out",
   "It's Raining",

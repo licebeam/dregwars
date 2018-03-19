@@ -1,10 +1,10 @@
 //THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
-
+var mainImage = $("#imgMain").prop("src", "images/server2.jpg");
 $("#hold").css("visibility", "hidden");
 var dayChange = false;
 //run change location to get default prices once when the game starts
 changeLocation();
-
+var eventModal = false; //set a modal up for an event.
 var timerNum = 0; //number of timers created
 ////
 var locationText = document.getElementById("loc");
@@ -39,13 +39,16 @@ function showItems() {
     document.getElementById("buyItem4").style.visibility = "visible";
   });
 }
-
+function changeImg(img) {
+  $("#imgMain").attr("src", img);
+}
 //MAIN Button menu
 if (dayChange === false) {
   function button(obj, id) {
     switch (id) {
       case btn1:
         hideItems();
+        changeImg("images/server2.jpg");
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
         eventText.innerText = loc1.randomEvent();
@@ -64,6 +67,7 @@ if (dayChange === false) {
 
       case btn2:
         hideItems();
+
         locationText.innerText = "Detroit: " + loc2.name;
         locationDes.innerText = "Description: " + loc2.desc;
         eventText.innerText = loc1.randomEvent();
@@ -82,6 +86,7 @@ if (dayChange === false) {
 
       case btn3:
         hideItems();
+
         locationText.innerText = "Detroit: " + loc3.name;
         locationDes.innerText = "Description: " + loc3.desc;
         eventText.innerText = loc1.randomEvent();
@@ -100,6 +105,7 @@ if (dayChange === false) {
 
       case btn4:
         hideItems();
+
         locationText.innerText = "Detroit: " + loc4.name;
         locationDes.innerText = "Description: " + loc4.desc;
         eventText.innerText = loc1.randomEvent();
@@ -117,11 +123,16 @@ if (dayChange === false) {
         break;
 
       case btnSe: //search button
-        descriptText.innerText = loc1.searchEvent();
-        //hideItems();
+        if (searchTimes === 0) {
+          descriptText.innerText = loc1.searchEvent();
+          search(descriptText.innerText);
+          modalEvent("Searching Area///", "You found: ");
+          searchTimes = 1;
+        }
         break;
 
       case btnTa: // this should populate the buy menu with dom elements
+        modalEvent("test", "test");
         descriptText.innerText = "Talking to Bob";
         //showItems();
         break;
@@ -352,6 +363,7 @@ function createTimer() {
     }
 
     //alert(timerBar.val);
+    searchTimes = 0; //makes sure you can only search 1 time per day.
     timerBar.ele.value = 0;
     $(timerBar.ele).remove();
     $("button").attr("disabled", false);
@@ -374,6 +386,7 @@ $("button.delete").click(function() {
     // Animation complete.
     firstLoad = true; //make sure the initial modal does not come back
     dayChange = true;
+
     showItems();
   });
   setTimeout(() => {}, 400);
