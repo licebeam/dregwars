@@ -1,30 +1,51 @@
+//This contains talking and searching....
+
 var foundItem = "";
 var itemDesc = "";
 var searchTimes = 0;
+var talkTimes = 0;
 // Search
 function search(evText) {
   switch (evText) {
     case "Nothing":
       foundItem = "Nothing";
-      changeImg(".eventImage img", ".eventImage", "images/event2.jpg");
+      player.name + ": Another wasted night.";
+      changeImg2(".eventImage img", ".eventImage", "images/event2.jpg");
 
       break;
     case "Gun":
       foundItem = "Gun";
-      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
-
+      player.name + ": Just what I needed!";
+      changeImg2(".eventImage img", ".eventImage", "images/fight.jpg");
       break;
 
     case "Trash":
       foundItem = "Trash";
-      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
-
+      player.name + ": Ugh, why me.";
+      changeImg2(".eventImage img", ".eventImage", "images/fight.jpg");
       break;
 
-    case "A cat walking down the street.":
-      foundItem = "A cat walking down the street.";
-      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
+    case "A black cat carrying a dark omen.":
+      foundItem = "A black cat carrying a dark omen.";
+      itemDesc = player.name + ": This can't be good..";
+      changeImg2(".eventImage img", ".eventImage", "images/event2.jpg");
+      break;
+  }
+}
 
+//talk switch
+function talk(evText) {
+  switch (evText) {
+    case "Hey, I think I've seen your face around here before.":
+      foundItem = "Hey, I think I've seen your face around here before.";
+      itemDesc = player.name + ": Glad I've never seen yours!";
+      changeImg2(".eventImage img", ".eventImage", "images/event3.jpg");
+      break;
+
+    case "Get outta here scum!":
+      foundItem = "Get outta here scum!";
+      itemDesc = player.name + ": Happy to Oblige";
+      changeImg2(".eventImage img", ".eventImage", "images/port1.jpg");
       break;
   }
 }
@@ -39,6 +60,17 @@ function modalEvent(t1, t2) {
   $(".modal").addClass("is-active");
 }
 $("button.delete").click(function() {
+  itemDesc = "";
+  foundItem = "";
+  descriptText.innerText = "";
+
   $(".modal").removeClass("is-active");
+
   setTimeout(() => {}, 400);
 });
+
+function changeImg2(cls, cls2, img) {
+  $(cls).remove();
+  setTimeout(() => {}, 100);
+  $(cls2).append("<img src='" + img + "' alt=''>");
+}

@@ -2,8 +2,6 @@
 
 $("#hold").css("visibility", "hidden");
 var dayChange = false;
-//run change location to get default prices once when the game starts
-changeLocation();
 var eventModal = false; //set a modal up for an event.
 var timerNum = 0; //number of timers created
 ////
@@ -39,10 +37,7 @@ function showItems() {
     document.getElementById("buyItem4").style.visibility = "visible";
   });
 }
-function changeImg(cls, cls2, img) {
-  $(cls).remove();
-  $(cls2).append("<img id='imgMain' src='" + img + "' alt=''>");
-}
+
 //MAIN Button menu
 if (dayChange === false) {
   function button(obj, id) {
@@ -52,6 +47,7 @@ if (dayChange === false) {
         changeImg(".mainImage img", ".mainImage", "images/server.jpg");
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
+        eventText.innerText = "";
         eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
@@ -68,13 +64,14 @@ if (dayChange === false) {
 
       case btn2:
         hideItems();
-        changeImg(".mainImage img", ".mainImage", "images/server2.jpg");
         locationText.innerText = "Detroit: " + loc2.name;
         locationDes.innerText = "Description: " + loc2.desc;
+        eventText.innerText = "";
         eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
           event(eventText.innerText);
+          changeImg(".mainImage img", ".mainImage", "images/server2.jpg");
           if (player.loanday <= 0) {
             loseGame();
           }
@@ -90,6 +87,7 @@ if (dayChange === false) {
         changeImg(".mainImage img", ".mainImage", "images/server3.jpg");
         locationText.innerText = "Detroit: " + loc3.name;
         locationDes.innerText = "Description: " + loc3.desc;
+        eventText.innerText = "";
         eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
@@ -109,6 +107,7 @@ if (dayChange === false) {
         changeImg(".mainImage img", ".mainImage", "images/server4.jpg");
         locationText.innerText = "Detroit: " + loc4.name;
         locationDes.innerText = "Description: " + loc4.desc;
+        eventText.innerText = "";
         eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
@@ -130,12 +129,20 @@ if (dayChange === false) {
           modalEvent("Searching Area///", "You found: ");
           searchTimes = 1;
         }
+
         break;
 
       case btnTa: // this should populate the buy menu with dom elements
-        modalEvent("test", "test");
-        descriptText.innerText = "Talking to Bob";
-        //showItems();
+        if (talkTimes === 0) {
+          descriptText.innerText = loc1.talkEvent();
+          talk(descriptText.innerText);
+          modalEvent(
+            "Talking///",
+            "You desperately listen for any semblance of meaning as they tell you: "
+          );
+          talkTimes = 1;
+        }
+
         break;
 
       ///buttons for item buys
@@ -291,62 +298,10 @@ var firstLoad = false; //check if game has loaded real quick like
 if (firstLoad === false) {
   $("#btn1").click();
 }
-///function that checks which event is currently happening.
-function event(evText) {
-  switch (evText) {
-    case "No Event":
-      changeImg(".eventImage img", ".eventImage", "images/titlescreen.jpg");
-      break;
 
-    case "It's Raining":
-      changeImg(".eventImage img", ".eventImage", "images/event7.jpg");
-      break;
-
-    case "Prices are low today!":
-      changeImg(".eventImage img", ".eventImage", "images/bankjob.jpg");
-      item1.value = 25;
-      item2.value = 500;
-      item3.value = 2000;
-      item4.value = 3000;
-      updateMerch();
-      break;
-
-    case "Prices are high today!":
-      changeImg(".eventImage img", ".eventImage", "images/event3.jpg");
-      item1.value = 10000;
-      item2.value = 20000;
-      item3.value = 30000;
-      item4.value = 40000;
-      updateMerch();
-      break;
-
-    case "You found $1,000 on your journey":
-      changeImg(".eventImage img", ".eventImage", "images/event6.jpg");
-      player.money += 1000;
-      break;
-
-    case "You had a run-in with the Police but got away.":
-      changeImg(".eventImage img", ".eventImage", "images/event1.jpg");
-      break;
-
-    case "You sense something of value in the area":
-      changeImg(".eventImage img", ".eventImage", "images/event5.jpg");
-      break;
-
-    case "You got mugged":
-      changeImg(".eventImage img", ".eventImage", "images/event8.jpg");
-      if (player.money >= 1000) {
-        player.money -= 1000;
-      } else {
-        player.money = 0;
-      }
-      break;
-  }
-}
 ///TIMER ALPHA1.0
 function createTimer() {
   dayChange = true;
-
   //for the main column
   $("#bounce").addClass("bounce");
   $("#eventArea").css("visibility", "hidden");
@@ -387,6 +342,7 @@ function createTimer() {
 
     //alert(timerBar.val);
     searchTimes = 0; //makes sure you can only search 1 time per day.
+    talkTimes = 0; //same as above for talking
     timerBar.ele.value = 0;
     $(timerBar.ele).remove();
     $("button").attr("disabled", false);
@@ -409,7 +365,6 @@ $("button.delete").click(function() {
     // Animation complete.
     firstLoad = true; //make sure the initial modal does not come back
     dayChange = true;
-
     showItems();
   });
   setTimeout(() => {}, 400);
@@ -428,6 +383,15 @@ function winGame() {
 function loseGame() {
   alert("you lose");
   window.location.reload();
+}
+///Image change function
+
+function changeImg(cls, cls2, img) {
+  $(document).ready(function() {
+    $(cls).remove();
+    setTimeout(() => {}, 100);
+    $(cls2).append("<img src='" + img + "' alt=''>");
+  });
 }
 
 ///UPDATE LOOP

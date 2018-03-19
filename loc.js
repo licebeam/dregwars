@@ -18,6 +18,11 @@ class locClass {
     //random search event for dealer
     return dealerResult[Math.floor(Math.random() * (2 - 0 + 1)) + 0];
   }
+
+  talkEvent() {
+    //random search event for dealer
+    return talkResult[Math.floor(Math.random() * (1 - 0 + 1)) + 0];
+  }
 }
 
 //inhereted classes
@@ -42,17 +47,22 @@ var searchResult = [
   "Gun",
   "Nothing",
   "Trash",
-  "A cat walking down the street."
+  "A black cat carrying a dark omen."
 ];
 
 var eventResult = [
-  "It's Raining",
+  "It's Raining.",
   "Prices are low today!",
   "Prices are high today!",
-  "You found $1,000 on your journey",
+  "You found $1,000 on your journey.",
   "You had a run-in with the Police but got away.",
-  "You sense something of value in the area",
-  "You got mugged"
+  "You sense something of value in the area.",
+  "You got mugged and lost $1,000."
 ];
 
 var dealerResult = ["Cyber", "Dreg", "Gear"];
+
+var talkResult = [
+  "Hey, I think I've seen your face around here before.",
+  "Get outta here scum!"
+];
