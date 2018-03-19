@@ -1,12 +1,13 @@
 var player = {
   name: "fake",
   hp: 5,
-  money: 10000000, //current cash
+  money: 1000, //current cash
   bagspace: 5, //max inv
   invNum: 0, //current inv
   day: 1, //current Day
   loan: 1000000, //loan amount
-  loanday: 30 //days until game over
+  loanday: 30, //days until game over
+  notor: 0 //player notoriety
 };
 
 var computer = {

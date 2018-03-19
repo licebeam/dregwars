@@ -21,17 +21,23 @@ function getRandomNum(min, max) {
 }
 
 function hideItems() {
-  document.getElementById("buyItem1").style.visibility = "hidden";
-  document.getElementById("buyItem2").style.visibility = "hidden";
-  document.getElementById("buyItem3").style.visibility = "hidden";
-  document.getElementById("buyItem4").style.visibility = "hidden";
+  $("#buyBody").fadeTo("slow", 0.1, function() {
+    // Animation complete.
+    document.getElementById("buyItem1").style.visibility = "hidden";
+    document.getElementById("buyItem2").style.visibility = "hidden";
+    document.getElementById("buyItem3").style.visibility = "hidden";
+    document.getElementById("buyItem4").style.visibility = "hidden";
+  });
 }
 
 function showItems() {
-  document.getElementById("buyItem1").style.visibility = "visible";
-  document.getElementById("buyItem2").style.visibility = "visible";
-  document.getElementById("buyItem3").style.visibility = "visible";
-  document.getElementById("buyItem4").style.visibility = "visible";
+  $("#buyBody").fadeTo("slow", 1, function() {
+    // Animation complete.
+    document.getElementById("buyItem1").style.visibility = "visible";
+    document.getElementById("buyItem2").style.visibility = "visible";
+    document.getElementById("buyItem3").style.visibility = "visible";
+    document.getElementById("buyItem4").style.visibility = "visible";
+  });
 }
 
 //MAIN Button menu
@@ -39,6 +45,7 @@ if (dayChange === false) {
   function button(obj, id) {
     switch (id) {
       case btn1:
+        hideItems();
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
         eventText.innerText = loc1.randomEvent();
@@ -52,10 +59,11 @@ if (dayChange === false) {
           eventText.innerText = "No Event";
         }
         createTimer();
-
+        $("button").attr("disabled", true); //disables buttons on change
         break;
 
       case btn2:
+        hideItems();
         locationText.innerText = "Detroit: " + loc2.name;
         locationDes.innerText = "Description: " + loc2.desc;
         eventText.innerText = loc1.randomEvent();
@@ -69,9 +77,11 @@ if (dayChange === false) {
           eventText.innerText = "No Event";
         }
         createTimer();
+        $("button").attr("disabled", true); //disables buttons on change
         break;
 
       case btn3:
+        hideItems();
         locationText.innerText = "Detroit: " + loc3.name;
         locationDes.innerText = "Description: " + loc3.desc;
         eventText.innerText = loc1.randomEvent();
@@ -85,9 +95,11 @@ if (dayChange === false) {
           eventText.innerText = "No Event";
         }
         createTimer();
+        $("button").attr("disabled", true); //disables buttons on change
         break;
 
       case btn4:
+        hideItems();
         locationText.innerText = "Detroit: " + loc4.name;
         locationDes.innerText = "Description: " + loc4.desc;
         eventText.innerText = loc1.randomEvent();
@@ -101,6 +113,7 @@ if (dayChange === false) {
           eventText.innerText = "No Event";
         }
         createTimer();
+        $("button").attr("disabled", true); //disables buttons on change
         break;
 
       case btnSe: //search button
@@ -270,14 +283,14 @@ if (firstLoad === false) {
 ///TIMER ALPHA1.0
 function createTimer() {
   dayChange = true;
+  player.day += 1; //CHANGE DAYS
+  player.loanday -= 1;
   //for the main column
   $("#bounce").addClass("bounce");
   $("#eventArea").css("visibility", "hidden");
-  $("#bounce").fadeTo("slow", 0.4, function() {
+  $("#bounce").fadeTo("slow", 0.5, function() {
     // Animation complete.
   });
-  $("button").attr("disabled", true); //disables buttons on change
-  $("#moneyBody").focus(); //strange button bug fix?
   var whereVar = $(".col1");
   timerNum++;
 
@@ -301,8 +314,7 @@ function createTimer() {
   setTimeout(() => {
     if (firstLoad === true) {
       //this is where you see events
-      player.day += 1; //CHANGE DAYS
-      player.loanday -= 1;
+
       $("#eventArea").css("visibility", "visible");
       modalLoad(
         "//Day " + player.day + " is Starting...",
@@ -311,6 +323,7 @@ function createTimer() {
     }
 
     //alert(timerBar.val);
+    timerBar.ele.value = 0;
     $(timerBar.ele).remove();
     $("button").attr("disabled", false);
     $("#bounce").removeClass("bounce");
@@ -332,15 +345,10 @@ $("button.delete").click(function() {
     // Animation complete.
     firstLoad = true; //make sure the initial modal does not come back
     dayChange = true;
+    showItems();
   });
+  setTimeout(() => {}, 400);
 });
-
-///UPDATE LOOP
-setInterval(() => {
-  updateInv();
-  updateStats();
-  updateMerch();
-}, 10);
 
 ///function that checks which event is currently happening.
 function event(evText) {
@@ -387,3 +395,10 @@ function loseGame() {
   alert("you lose");
   window.location.reload();
 }
+
+///UPDATE LOOP
+setInterval(() => {
+  updateInv();
+  updateStats();
+  updateMerch();
+}, 60);

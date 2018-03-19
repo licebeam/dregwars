@@ -1,9 +1,9 @@
 var item1 = {
   name: "Credit Stick",
-  value: 100, // this is the range of price this can be.
+  value: 50, // this is the range of price this can be.
   amount: 10, // this is the range of items this can be.
-  dvalue: 100, // default
-  damount: 10, // default
+  dvalue: 50, // default
+  damount: 1, // default
   sell: false
 };
 
@@ -12,25 +12,25 @@ var item2 = {
   value: 1000, // this is the range of price this can be.
   amount: 10, // this is the range of items this can be.
   dvalue: 1000, // default
-  damount: 10, // default
+  damount: 1, // default
   sell: false
 };
 
 var item3 = {
   name: "Mega Mushrooms",
-  value: 2000, // this is the range of price this can be.
+  value: 2500, // this is the range of price this can be.
   amount: 5, // this is the range of items this can be.
-  dvalue: 2000, // default
-  damount: 5, // default
+  dvalue: 2500, // default
+  damount: 1, // default
   sell: false
 };
 
 var item4 = {
   name: "Injector",
-  value: 3333, // this is the range of price this can be.
+  value: 5000, // this is the range of price this can be.
   amount: 10, // this is the range of items this can be.
-  dvalue: 3333, // default
-  damount: 10, // default
+  dvalue: 5000, // default
+  damount: 1, // default
   sell: false
 };
 // / WHERE ITEMS LAY get buy names for function show, buy and sell---- sets the

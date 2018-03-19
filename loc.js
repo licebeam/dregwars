@@ -6,7 +6,7 @@ class locClass {
   }
   randomEvent() {
     //random event method
-    return eventResult[Math.floor(Math.random() * (4 - 0 + 1)) + 0];
+    return eventResult[Math.floor(Math.random() * (6 - 0 + 1)) + 0];
   }
 
   searchEvent() {
@@ -44,6 +44,8 @@ var eventResult = [
   "It's Raining",
   "Prices are low today!",
   "Prices are high today!",
-  "You found $1,000 on your journey"
+  "You found $1,000 on your journey",
+  "You had a run-in with the Police but got away.",
+  "You sense something of value in the area"
 ];
 var dealerResult = ["Cyber", "Dreg", "Gear"];
