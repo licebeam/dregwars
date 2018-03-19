@@ -312,8 +312,7 @@ function event(evText) {
 ///TIMER ALPHA1.0
 function createTimer() {
   dayChange = true;
-  player.day += 1; //CHANGE DAYS
-  player.loanday -= 1;
+
   //for the main column
   $("#bounce").addClass("bounce");
   $("#eventArea").css("visibility", "hidden");
@@ -343,7 +342,8 @@ function createTimer() {
   setTimeout(() => {
     if (firstLoad === true) {
       //this is where you see events
-
+      player.day += 1; //CHANGE DAYS
+      player.loanday -= 1;
       $("#eventArea").css("visibility", "visible");
       modalLoad(
         "//Day " + player.day + " is Starting...",
