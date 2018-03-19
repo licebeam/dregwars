@@ -46,13 +46,13 @@ var searchResult = [
 ];
 
 var eventResult = [
-  "It's Sunny out",
   "It's Raining",
   "Prices are low today!",
   "Prices are high today!",
   "You found $1,000 on your journey",
   "You had a run-in with the Police but got away.",
-  "You sense something of value in the area"
+  "You sense something of value in the area",
+  "You got mugged"
 ];
 
 var dealerResult = ["Cyber", "Dreg", "Gear"];

@@ -295,7 +295,11 @@ if (firstLoad === false) {
 function event(evText) {
   switch (evText) {
     case "No Event":
-      changeImg(".eventImage img", ".eventImage", "images/event2.jpg");
+      changeImg(".eventImage img", ".eventImage", "images/titlescreen.jpg");
+      break;
+
+    case "It's Raining":
+      changeImg(".eventImage img", ".eventImage", "images/event7.jpg");
       break;
 
     case "Prices are low today!":
@@ -304,12 +308,11 @@ function event(evText) {
       item2.value = 500;
       item3.value = 2000;
       item4.value = 3000;
-
       updateMerch();
-
       break;
 
     case "Prices are high today!":
+      changeImg(".eventImage img", ".eventImage", "images/event3.jpg");
       item1.value = 10000;
       item2.value = 20000;
       item3.value = 30000;
@@ -318,8 +321,25 @@ function event(evText) {
       break;
 
     case "You found $1,000 on your journey":
+      changeImg(".eventImage img", ".eventImage", "images/event6.jpg");
       player.money += 1000;
+      break;
 
+    case "You had a run-in with the Police but got away.":
+      changeImg(".eventImage img", ".eventImage", "images/event1.jpg");
+      break;
+
+    case "You sense something of value in the area":
+      changeImg(".eventImage img", ".eventImage", "images/event5.jpg");
+      break;
+
+    case "You got mugged":
+      changeImg(".eventImage img", ".eventImage", "images/event8.jpg");
+      if (player.money >= 1000) {
+        player.money -= 1000;
+      } else {
+        player.money = 0;
+      }
       break;
   }
 }
