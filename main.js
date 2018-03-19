@@ -1,5 +1,5 @@
 //THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
-var mainImage = $("#imgMain").prop("src", "images/server2.jpg");
+
 $("#hold").css("visibility", "hidden");
 var dayChange = false;
 //run change location to get default prices once when the game starts
@@ -39,8 +39,9 @@ function showItems() {
     document.getElementById("buyItem4").style.visibility = "visible";
   });
 }
-function changeImg(img) {
-  $("#imgMain").attr("src", img);
+function changeImg(cls, cls2, img) {
+  $(cls).remove();
+  $(cls2).append("<img id='imgMain' src='" + img + "' alt=''>");
 }
 //MAIN Button menu
 if (dayChange === false) {
@@ -48,7 +49,7 @@ if (dayChange === false) {
     switch (id) {
       case btn1:
         hideItems();
-        changeImg("images/server2.jpg");
+        changeImg(".mainImage img", ".mainImage", "images/server.jpg");
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
         eventText.innerText = loc1.randomEvent();
@@ -67,7 +68,7 @@ if (dayChange === false) {
 
       case btn2:
         hideItems();
-
+        changeImg(".mainImage img", ".mainImage", "images/server2.jpg");
         locationText.innerText = "Detroit: " + loc2.name;
         locationDes.innerText = "Description: " + loc2.desc;
         eventText.innerText = loc1.randomEvent();
@@ -86,7 +87,7 @@ if (dayChange === false) {
 
       case btn3:
         hideItems();
-
+        changeImg(".mainImage img", ".mainImage", "images/server3.jpg");
         locationText.innerText = "Detroit: " + loc3.name;
         locationDes.innerText = "Description: " + loc3.desc;
         eventText.innerText = loc1.randomEvent();
@@ -105,7 +106,7 @@ if (dayChange === false) {
 
       case btn4:
         hideItems();
-
+        changeImg(".mainImage img", ".mainImage", "images/server4.jpg");
         locationText.innerText = "Detroit: " + loc4.name;
         locationDes.innerText = "Description: " + loc4.desc;
         eventText.innerText = loc1.randomEvent();
@@ -294,9 +295,11 @@ if (firstLoad === false) {
 function event(evText) {
   switch (evText) {
     case "No Event":
+      changeImg(".eventImage img", ".eventImage", "images/event2.jpg");
       break;
 
     case "Prices are low today!":
+      changeImg(".eventImage img", ".eventImage", "images/bankjob.jpg");
       item1.value = 25;
       item2.value = 500;
       item3.value = 2000;

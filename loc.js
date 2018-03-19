@@ -11,7 +11,7 @@ class locClass {
 
   searchEvent() {
     //random search event for event
-    return searchResult[Math.floor(Math.random() * (1 - 0 + 1)) + 0];
+    return searchResult[Math.floor(Math.random() * (3 - 0 + 1)) + 0];
   }
 
   dealerEvent() {
@@ -38,7 +38,13 @@ loc4.name = "South End";
 loc4.desc = "The proverbial end.";
 
 //data structures for random events
-var searchResult = ["Gun", "Nothing"];
+var searchResult = [
+  "Gun",
+  "Nothing",
+  "Trash",
+  "A cat walking down the street."
+];
+
 var eventResult = [
   "It's Sunny out",
   "It's Raining",
@@ -48,4 +54,5 @@ var eventResult = [
   "You had a run-in with the Police but got away.",
   "You sense something of value in the area"
 ];
+
 var dealerResult = ["Cyber", "Dreg", "Gear"];

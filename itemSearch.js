@@ -6,10 +6,24 @@ function search(evText) {
   switch (evText) {
     case "Nothing":
       foundItem = "Nothing";
+      changeImg(".eventImage img", ".eventImage", "images/event2.jpg");
 
       break;
     case "Gun":
       foundItem = "Gun";
+      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
+
+      break;
+
+    case "Trash":
+      foundItem = "Trash";
+      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
+
+      break;
+
+    case "A cat walking down the street.":
+      foundItem = "A cat walking down the street.";
+      changeImg(".eventImage img", ".eventImage", "images/fight.jpg");
 
       break;
   }
