@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-  margin-top: 2%;
+  margin-top: 1%;
 }
 
 .column {
@@ -82,7 +82,7 @@ em {
   height: 240px;
 }
 #moneyBody {
-  height: 80px;
+  height: 60px;
 }
 
 #statsBody {
