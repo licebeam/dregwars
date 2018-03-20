@@ -33,6 +33,7 @@ function event(evText) {
       item2.value = 500;
       item3.value = 2000;
       item4.value = 3000;
+      item5.value = 5000;
       updateMerch();
       break;
 
@@ -44,6 +45,7 @@ function event(evText) {
       item2.value = 20000;
       item3.value = 30000;
       item4.value = 40000;
+      item4.value = 50000;
       updateMerch();
       break;
 
