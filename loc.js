@@ -6,7 +6,7 @@ class locClass {
   }
   randomEvent() {
     //random event method
-    return eventResult[Math.floor(Math.random() * (6 - 0 + 1)) + 0];
+    return eventResult[Math.floor(Math.random() * 6 + 0)];
   }
 
   searchEvent() {
@@ -51,6 +51,7 @@ var searchResult = [
 ];
 
 var eventResult = [
+  "No Event",
   "It's Raining.",
   "Prices are low today!",
   "Prices are high today!",

@@ -1,5 +1,5 @@
 //THIS SCRIPT USES CLASS OBJECTS FROM loc.js test bar little loading test
-
+eventStart = false;
 $("#hold").css("visibility", "hidden");
 var dayChange = false;
 var eventModal = false; //set a modal up for an event.
@@ -19,17 +19,17 @@ function getRandomNum(min, max) {
 }
 
 function hideItems() {
-  $("#buyBody").fadeTo("fast", 0.1, function() {
+  document.getElementById("buyItem1").style.visibility = "hidden";
+  document.getElementById("buyItem2").style.visibility = "hidden";
+  document.getElementById("buyItem3").style.visibility = "hidden";
+  document.getElementById("buyItem4").style.visibility = "hidden";
+  $(".buyMenu").fadeTo("fast", 0.5, function() {
     // Animation complete.
-    document.getElementById("buyItem1").style.visibility = "hidden";
-    document.getElementById("buyItem2").style.visibility = "hidden";
-    document.getElementById("buyItem3").style.visibility = "hidden";
-    document.getElementById("buyItem4").style.visibility = "hidden";
   });
 }
 
 function showItems() {
-  $("#buyBody").fadeTo("fast", 1, function() {
+  $(".buyMenu").fadeTo("fast", 1, function() {
     // Animation complete.
     document.getElementById("buyItem1").style.visibility = "visible";
     document.getElementById("buyItem2").style.visibility = "visible";
@@ -44,14 +44,13 @@ if (dayChange === false) {
     switch (id) {
       case btn1:
         hideItems();
-        changeImg(".mainImage img", ".mainImage", "images/server.jpg");
+        changeImg(".mainImage img", ".mainImage", "images/server4.jpg");
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
-        eventText.innerText = "";
-        eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
-          event(eventText.innerText);
+          eventStart = true;
+          funcEvent();
           if (player.loanday <= 0) {
             loseGame();
           }
@@ -64,14 +63,13 @@ if (dayChange === false) {
 
       case btn2:
         hideItems();
+        changeImg(".mainImage img", ".mainImage", "images/server2.jpg");
         locationText.innerText = "Detroit: " + loc2.name;
         locationDes.innerText = "Description: " + loc2.desc;
-        eventText.innerText = "";
-        eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
-          event(eventText.innerText);
-          changeImg(".mainImage img", ".mainImage", "images/server2.jpg");
+          eventStart = true;
+          funcEvent();
           if (player.loanday <= 0) {
             loseGame();
           }
@@ -87,11 +85,10 @@ if (dayChange === false) {
         changeImg(".mainImage img", ".mainImage", "images/server3.jpg");
         locationText.innerText = "Detroit: " + loc3.name;
         locationDes.innerText = "Description: " + loc3.desc;
-        eventText.innerText = "";
-        eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
-          event(eventText.innerText);
+          eventStart = true;
+          funcEvent();
           if (player.loanday <= 0) {
             loseGame();
           }
@@ -107,11 +104,10 @@ if (dayChange === false) {
         changeImg(".mainImage img", ".mainImage", "images/server4.jpg");
         locationText.innerText = "Detroit: " + loc4.name;
         locationDes.innerText = "Description: " + loc4.desc;
-        eventText.innerText = "";
-        eventText.innerText = loc1.randomEvent();
         changeLocation();
         if (player.day !== 1) {
-          event(eventText.innerText);
+          eventStart = true;
+          funcEvent();
           if (player.loanday <= 0) {
             loseGame();
           }
@@ -217,6 +213,11 @@ if (dayChange === false) {
     }
   }
 }
+
+var firstLoad = false; //check if game has loaded real quick like
+if (firstLoad === false) {
+  $("#btn1").click();
+}
 //function for buying item
 function buyItems(name, amt, price) {
   //finally works!!!!
@@ -294,10 +295,6 @@ function updateInv() {
     invenPlayer.innerText += " Owned: " + playerInv[i].amount + "\n";
   }
 }
-var firstLoad = false; //check if game has loaded real quick like
-if (firstLoad === false) {
-  $("#btn1").click();
-}
 
 ///TIMER ALPHA1.0
 function createTimer() {
@@ -333,7 +330,11 @@ function createTimer() {
       //this is where you see events
       player.day += 1; //CHANGE DAYS
       player.loanday -= 1;
+
       $("#eventArea").css("visibility", "visible");
+    }
+
+    if (eventStart === false) {
       modalLoad(
         "//Day " + player.day + " is Starting...",
         "Prices have changed!"
@@ -358,6 +359,7 @@ function modalLoad(t1, t2) {
   $(".loanDays").text("Days left to pay your loan: " + player.loanday);
   $(".modal").addClass("is-active");
 }
+
 $("button.delete").click(function() {
   $(".modal").removeClass("is-active");
   $("#moneyBody").focus(); //strange button bug fix?
@@ -389,8 +391,7 @@ function loseGame() {
 function changeImg(cls, cls2, img) {
   $(document).ready(function() {
     $(cls).remove();
-    setTimeout(() => {}, 100);
-    $(cls2).append("<img src='" + img + "' alt=''>");
+    $(cls2).append("<img src='" + img + "'alt='Failed'>");
   });
 }
 

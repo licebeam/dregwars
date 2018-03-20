@@ -64,7 +64,7 @@ em {
   visibility: visible;
 }
 #mainBody {
-  height: 470px;
+  height: 480px;
 }
 #nearBody {
   height: 100px;
@@ -123,4 +123,11 @@ em {
 
 #descriptText {
   opacity: 0;
+}
+
+.img1 {
+  visibility: hidden;
+}
+.img2 {
+  visibility: hidden;
 }
