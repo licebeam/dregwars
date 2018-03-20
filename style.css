@@ -38,13 +38,11 @@ body {
 }
 button {
   z-index: 10;
-  margin-bottom: 10px;
-  padding-right: 10px;
+  margin: 0;
 }
 
 em {
   margin-right: 10px;
-
   font-size: 12pt;
 }
 
@@ -70,10 +68,10 @@ em {
   height: 100px;
 }
 #buyBody {
-  height: 240px;
+  height: 300px;
 }
 #invBody {
-  height: 240px;
+  height: 200px;
 }
 #moneyBody {
   height: 60px;

@@ -21,7 +21,7 @@ function event(evText) {
     case "It's Raining.":
       foundItem = "It's Raining.";
       itemDesc = "Days left to pay your loan: " + player.loanday;
-      changeImg2(".eventImage img", ".eventImage", "images/event5.jpg");
+      changeImg2(".eventImage img", ".eventImage", "images/event7.jpg");
 
       break;
 
@@ -63,7 +63,7 @@ function event(evText) {
     case "You sense something of value in the area.":
       foundItem = "You sense something of value in the area.";
       itemDesc = "Days left to pay your loan: " + player.loanday;
-      changeImg2(".eventImage img", ".eventImage", "images/port1.jpg");
+      changeImg2(".eventImage img", ".eventImage", "images/event5.jpg");
       break;
 
     case "You got mugged and lost $1,000.":

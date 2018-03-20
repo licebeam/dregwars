@@ -1,8 +1,8 @@
 var player = {
   name: "Decker",
   hp: 5,
-  money: 5000, //current cash
-  bagspace: 5, //max inv
+  money: 1000, //current cash
+  bagspace: 4, //max inv
   invNum: 0, //current inv
   day: 1, //current Day
   loan: 1000000, //loan amount
@@ -24,3 +24,10 @@ function updateStats() {
   $("#playDate").text("Day: " + player.day);
   $("#playerLoan").text(" Loan: " + player.loan);
 }
+
+var playerEquip = {
+  bag: "Pockets",
+  armor: "Leather Jacket",
+  weapon: "Fist",
+  implant: "None"
+};

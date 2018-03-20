@@ -11,7 +11,7 @@ class locClass {
 
   searchEvent() {
     //random search event for event
-    return searchResult[Math.floor(Math.random() * (3 - 0 + 1)) + 0];
+    return searchResult[Math.floor(Math.random() * (4 - 0 + 1)) + 0];
   }
 
   dealerEvent() {
@@ -47,7 +47,8 @@ var searchResult = [
   "Gun",
   "Nothing",
   "Trash",
-  "A black cat carrying a dark omen."
+  "A black cat carrying a dark omen.",
+  "You found a wad of cash on the ground."
 ];
 
 var eventResult = [

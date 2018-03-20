@@ -30,6 +30,13 @@ function search(evText) {
       itemDesc = player.name + ": This can't be good..";
       changeImg2(".eventImage img", ".eventImage", "images/event2.jpg");
       break;
+
+    case "You found a wad of cash on the ground.":
+      foundItem = "You found a bit of cash on the ground.";
+      itemDesc = player.name + ": One hundred Anything is something...";
+      player.money += 100;
+      changeImg2(".eventImage img", ".eventImage", "images/event2.jpg");
+      break;
   }
 }
 

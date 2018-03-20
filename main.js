@@ -23,6 +23,7 @@ function hideItems() {
   document.getElementById("buyItem2").style.visibility = "hidden";
   document.getElementById("buyItem3").style.visibility = "hidden";
   document.getElementById("buyItem4").style.visibility = "hidden";
+  document.getElementById("buyItem5").style.visibility = "hidden";
   $(".buyMenu").fadeTo("fast", 0.5, function() {
     // Animation complete.
   });
@@ -35,6 +36,7 @@ function showItems() {
     document.getElementById("buyItem2").style.visibility = "visible";
     document.getElementById("buyItem3").style.visibility = "visible";
     document.getElementById("buyItem4").style.visibility = "visible";
+    document.getElementById("buyItem5").style.visibility = "visible";
   });
 }
 
@@ -115,6 +117,8 @@ if (dayChange === false) {
           eventText.innerText = "No Event";
         }
         createTimer();
+        //change dealer
+        $("#dealerName").text(loc1.dealerEvent());
         $("button").attr("disabled", true); //disables buttons on change
         break;
 
@@ -203,6 +207,21 @@ if (dayChange === false) {
         sellItems(buyName4, 1, item4.value, 4); //bnum is button num for item
         break;
 
+      case buyBtn5:
+        if (
+          item5.amount >= 1 &&
+          player.money >= item5.value &&
+          player.invNum < player.bagspace
+        ) {
+          buyItems(buyName5, 1, item5.value);
+          item5.amount -= 1;
+        }
+        break;
+
+      case sellBtn5:
+        sellItems(buyName5, 1, item5.value, 5); //bnum is button num for item
+        break;
+
       case loanButton:
         if (player.money >= player.loan) {
           player.money -= player.loan;
@@ -268,6 +287,10 @@ function sellItems(name, amt, price, bnum) {
           case 4:
             item4.amount += 1;
             break;
+
+          case 5:
+            item5.amount += 1;
+            break;
         }
       }
 
@@ -278,7 +301,7 @@ function sellItems(name, amt, price, bnum) {
 
 //populate Player inventory.
 function updateInv() {
-  var bagNum = player.bagspace - 1;
+  var bagNum = player.bagspace;
   invenPlayer.innerText =
     "Player Bagspace: " +
     bagNum +
@@ -340,7 +363,8 @@ function createTimer() {
       $("#eventArea").css("visibility", "visible");
     }
 
-    //alert(timerBar.val);
+    //THIS IS WHEN THE DAY RESTARTS
+
     searchTimes = 0; //makes sure you can only search 1 time per day.
     talkTimes = 0; //same as above for talking
     timerBar.ele.value = 0;

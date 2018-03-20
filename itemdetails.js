@@ -17,7 +17,7 @@ var item2 = {
 };
 
 var item3 = {
-  name: "Mega Mushrooms",
+  name: "Pills",
   value: 2500, // this is the range of price this can be.
   amount: 5, // this is the range of items this can be.
   dvalue: 2500, // default
@@ -30,6 +30,15 @@ var item4 = {
   value: 5000, // this is the range of price this can be.
   amount: 10, // this is the range of items this can be.
   dvalue: 5000, // default
+  damount: 1, // default
+  sell: false
+};
+
+var item5 = {
+  name: "Surplus Electronics",
+  value: 10000, // this is the range of price this can be.
+  amount: 10, // this is the range of items this can be.
+  dvalue: 10000, // default
   damount: 1, // default
   sell: false
 };
@@ -66,9 +75,18 @@ buyn4.innerText = item4.name + " -- ";
 buyp4.innerText = "Price: " + item4.value;
 buya4.innerText = "Available: " + item4.amount;
 var buyName4 = document.getElementById("buyName4").textContent;
+// item 5
+var buyn5 = document.getElementById("buyName5");
+var buyp5 = document.getElementById("buyPrice5");
+var buya5 = document.getElementById("buynum5");
+buyn5.innerText = item5.name + " -- ";
+buyp5.innerText = "Price: " + item5.value;
+buya5.innerText = "Available: " + item5.amount;
+var buyName5 = document.getElementById("buyName5").textContent;
 
 function updateMerch() {
   //update the items in the merchant
+
   // / WHERE ITEMS LAY get buy names for function show, buy and sell---- sets the
   // item 1
   var buyn1 = document.getElementById("buyName1");
@@ -102,6 +120,14 @@ function updateMerch() {
   buyp4.innerText = "$: " + item4.value;
   buya4.innerText = "x " + item4.amount;
   var buyName4 = document.getElementById("buyName4").textContent;
+  // item 5
+  var buyn5 = document.getElementById("buyName5");
+  var buyp5 = document.getElementById("buyPrice5");
+  var buya5 = document.getElementById("buynum5");
+  buyn5.innerText = item5.name + " -- ";
+  buyp5.innerText = "$: " + item5.value;
+  buya5.innerText = "x " + item5.amount;
+  var buyName5 = document.getElementById("buyName5").textContent;
 }
 //change locations for buttons
 function changeLocation() {
@@ -113,6 +139,8 @@ function changeLocation() {
   item3.amount = item3.damount;
   item4.value = item4.dvalue;
   item4.amount = item4.damount;
+  item5.value = item4.dvalue;
+  item5.amount = item4.damount;
 
   var modifier1 = getRandomNum(1, 10);
   var modifier2 = getRandomNum(1, 10);
@@ -133,5 +161,11 @@ function changeLocation() {
   var modifier8 = getRandomNum(1, 10);
   item4.value *= modifier7;
   item4.amount *= modifier8;
+
+  var modifier9 = getRandomNum(1, 10);
+  var modifier10 = getRandomNum(1, 10);
+  item5.value *= modifier9;
+  item5.amount *= modifier10;
+
   updateMerch();
 }
