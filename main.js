@@ -44,7 +44,7 @@ if (dayChange === false) {
     switch (id) {
       case btn1:
         hideItems();
-        changeImg(".mainImage img", ".mainImage", "images/server4.jpg");
+        changeImg(".mainImage img", ".mainImage", "images/server.jpg");
         locationText.innerText = "Detroit: " + loc1.name;
         locationDes.innerText = "Description: " + loc1.desc;
         changeLocation();
@@ -330,15 +330,14 @@ function createTimer() {
       //this is where you see events
       player.day += 1; //CHANGE DAYS
       player.loanday -= 1;
+      if (eventStart === false) {
+        modalLoad(
+          "//Day " + player.day + " is Starting...",
+          "Prices have changed!"
+        );
+      }
 
       $("#eventArea").css("visibility", "visible");
-    }
-
-    if (eventStart === false) {
-      modalLoad(
-        "//Day " + player.day + " is Starting...",
-        "Prices have changed!"
-      );
     }
 
     //alert(timerBar.val);
